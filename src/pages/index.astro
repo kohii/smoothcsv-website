@@ -1,11 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/BaseLayout.astro";
 import Button from "@components/Button.astro";
 import GitHubIcon from "@components/GitHubIcon.astro";
 import XIcon from "@components/XIcon.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
 import "./index.css";
 
 import heroImage from "@assets/hero.png";
@@ -19,210 +17,204 @@ import avatorImage from "@assets/kohii.jpg";
 ---
 
 <Layout title="SmoothCSV - The ultimate CSV editor for macOS & Windows">
-  <div class="min-h-screen">
-    <Header />
-    <main>
-      <section class="w-full py-12 md:py-24 lg:py-32 xl:py-40 grid-bg">
-        <div class="container mx-auto">
-          <div class="px-4 md:px-6">
-            <div class="flex flex-col items-center space-y-8 text-center">
-              <h1
-                class="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
+  <main>
+    <section class="w-full py-12 md:pt-24 lg:pt-32 grid-bg">
+      <div class="container mx-auto">
+        <div class="px-4 md:px-6">
+          <div class="flex flex-col items-center space-y-8 text-center">
+            <h1
+              class="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
+            >
+              The Ultimate CSV Editor
+            </h1>
+            <p class="mx-auto max-w-[700px] md:text-xl">
+              SmoothCSV is a powerful and intuitive tool for editing and CSV
+              files.
+            </p>
+            <div class="space-x-4">
+              <a
+                href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.4/SmoothCSV.3_0.1.0-alpha.4_universal.dmg"
               >
-                The Ultimate CSV Editor
-              </h1>
-              <p class="mx-auto max-w-[700px] md:text-xl">
-                SmoothCSV is a powerful and intuitive tool for editing and CSV
-                files.
+                <Button variant="primary"> Download for macOS </Button>
+              </a>
+              <a
+                href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_x64-setup.exe"
+              >
+                <Button variant="secondary"> Download for Windows </Button>
+              </a>
+            </div>
+            <Image src={heroImage} alt="Screenshot" class="w-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full py-8 md:py-16">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="flex flex-col space-y-4">
+              <h2 class="text-xl md:text-3xl font-medium">Easy Editing</h2>
+              <p>
+                Edit your CSV files with an intuitive spreadsheet-like
+                interface.
               </p>
-              <div class="space-x-4">
-                <a
-                  href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.4/SmoothCSV.3_0.1.0-alpha.4_universal.dmg"
-                >
-                  <Button variant="primary"> Download for macOS </Button>
-                </a>
-                <a
-                  href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_x64-setup.exe"
-                >
-                  <Button variant="secondary"> Download for Windows </Button>
-                </a>
-              </div>
-              <Image src={heroImage} alt="Screenshot" class="w-full" />
+            </div>
+            <div class="md:col-span-2 border overflow-hidden rounded-xl">
+              <Image src={editingImage} alt="Editing" class="w-full" />
             </div>
           </div>
         </div>
-      </section>
-      <section class="w-full py-8 md:py-16">
-        <div class="container mx-auto">
-          <div class="px-4 lg:px-12">
-            <div class="grid gap-6 md:grid-cols-3">
-              <div class="flex flex-col space-y-4">
-                <h2 class="text-xl md:text-3xl font-medium">Easy Editing</h2>
-                <p>
-                  Edit your CSV files with an intuitive spreadsheet-like
-                  interface.
-                </p>
-              </div>
-              <div class="md:col-span-2 border overflow-hidden rounded-xl">
-                <Image src={editingImage} alt="Editing" class="w-full" />
-              </div>
+      </div>
+    </section>
+    <section class="w-full py-8 md:py-16">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="flex flex-col space-y-4">
+              <h2 class="text-xl md:text-3xl font-medium">Powerful Tools</h2>
+              <p>
+                Find and replace data, sort rows, and more.<br />
+                The command palette makes it easy to access all features.
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
-      <section class="w-full py-8 md:py-16">
-        <div class="container mx-auto">
-          <div class="px-4 lg:px-12">
-            <div class="grid gap-6 md:grid-cols-3">
-              <div class="flex flex-col space-y-4">
-                <h2 class="text-xl md:text-3xl font-medium">Powerful Tools</h2>
-                <p>
-                  Find and replace data, sort rows, and more.<br />
-                  The command palette makes it easy to access all features.
-                </p>
+            <div class="md:col-span-2 grid gap-2 lg:gap-3 lg:grid-cols-2">
+              <div class="lg:col-span-2 border overflow-hidden shadow-md">
+                <Image src={replaceImage} alt="Replace" class="w-full" />
               </div>
-              <div class="md:col-span-2 grid gap-2 lg:gap-3 lg:grid-cols-2">
-                <div class="lg:col-span-2 border overflow-hidden shadow-md">
-                  <Image src={replaceImage} alt="Replace" class="w-full" />
-                </div>
-                <div class="border overflow-hidden rounded-md shadow-md">
-                  <Image src={sortImage} alt="Sort" class="w-full" />
-                </div>
-                <div class="border overflow-hidden rounded shadow-md">
-                  <Image
-                    src={commandPaletteImage}
-                    alt="Command Palette"
-                    class="w-full"
-                  />
-                </div>
+              <div class="border overflow-hidden rounded-md shadow-md">
+                <Image src={sortImage} alt="Sort" class="w-full" />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="w-full py-8 md:py-16">
-        <div class="container mx-auto">
-          <div class="px-4 lg:px-12">
-            <div class="grid gap-6 md:grid-cols-3">
-              <div class="flex flex-col space-y-4">
-                <h2 class="text-xl md:text-3xl font-medium">Lightning Fast</h2>
-                <p>Handle large CSV files with blazing speed and efficiency.</p>
-              </div>
-              <div class="md:col-span-2">
+              <div class="border overflow-hidden rounded shadow-md">
                 <Image
-                  src={perfImage}
-                  alt="CSV opening performance for 100MB file. SmoothCSV is 12 times faster than Excel"
+                  src={commandPaletteImage}
+                  alt="Command Palette"
                   class="w-full"
                 />
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <section class="w-full py-8 md:py-16">
-        <div class="container mx-auto">
-          <div class="px-4 lg:px-12">
-            <div class="grid gap-6 md:grid-cols-3">
-              <div class="flex flex-col space-y-4">
-                <h2 class="text-xl md:text-3xl font-medium">Cross-Platform</h2>
-                <p>
-                  SmoothCSV is available on Windows, macOS.<br />
-                  Coming soon to Linux.
-                </p>
-              </div>
-              <div class="md:col-span-2">
-                <div class="overflow-hidden rounded-xl">
-                  <Image
-                    src={crossPlatformImage}
-                    alt="Cross-Platform"
-                    class="w-full"
-                  />
-                </div>
-              </div>
+      </div>
+    </section>
+    <section class="w-full py-8 md:py-16">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="flex flex-col space-y-4">
+              <h2 class="text-xl md:text-3xl font-medium">Lightning Fast</h2>
+              <p>Handle large CSV files with blazing speed and efficiency.</p>
+            </div>
+            <div class="md:col-span-2">
+              <Image
+                src={perfImage}
+                alt="CSV opening performance for 100MB file. SmoothCSV is 12 times faster than Excel"
+                class="w-full"
+              />
             </div>
           </div>
         </div>
-      </section>
-      <section class="w-full py-12 md:py-24 bg-gray-100">
-        <div class="container px-4 md:px-6 mx-auto">
-          <h2
-            class="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12"
-          >
-            Ready to Get Started?
-          </h2>
-          <div class="flex flex-col items-center space-y-8 text-center">
-            <p class="mx-auto max-w-[700px] md:text-lg">
-              Download SmoothCSV now and start editing your CSV files with ease.
-            </p>
-            <div class="space-x-4">
-              <a
-                href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.4/SmoothCSV.3_0.1.0-alpha.4_universal.dmg"
-              >
-                <Button variant="primary">Download for macOS</Button>
-              </a>
-              <a
-                href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_x64-setup.exe"
-              >
-                <Button variant="secondary">Download for Windows</Button>
-              </a>
+      </div>
+    </section>
+    <section class="w-full py-8 md:py-16">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="flex flex-col space-y-4">
+              <h2 class="text-xl md:text-3xl font-medium">Cross-Platform</h2>
+              <p>
+                SmoothCSV is available on Windows, macOS.<br />
+                Coming soon to Linux.
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
-      <section class="w-full py-8 md:py-16">
-        <div class="container mx-auto">
-          <div class="px-4 lg:px-12">
-            <div class="flex flex-col gap-4 md:gap-8 items-center text-center">
-              <h2 class="text-xl md:text-3xl font-medium">About Me</h2>
-              <div class="flex flex-col items-center gap-2">
+            <div class="md:col-span-2">
+              <div class="overflow-hidden rounded-xl">
                 <Image
-                  src={avatorImage}
-                  alt="Avatar"
-                  class="w-20 h-20 rounded-full"
+                  src={crossPlatformImage}
+                  alt="Cross-Platform"
+                  class="w-full"
                 />
-                <h3 class="text-md font-medium">kohii</h3>
-                <div class="text-gray-500 flex gap-2 items-center">
-                  <a
-                    href="https://github.com/kohii"
-                    title="kohii on GitHub"
-                    class="p-1"
-                  >
-                    <GitHubIcon class="w-6 h-6" />
-                  </a>
-                  <a
-                    href="https://x.com/kohii00"
-                    title="kohii00 on X"
-                    class="p-1"
-                  >
-                    <XIcon class="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-              <div>
-                <p class="text-secondary">
-                  I'm a full-stack developer and crafting SmoothCSV in my spare
-                  time.
-                </p>
-                <p class="text-secondary">
-                  If you like SmoothCSV, feel free to <a
-                    href="https://twitter.com/intent/tweet?text=Check%20out%20%23SmoothCSV%2C%20the%20ultimate%20%23CSVeditor%20for%20macOS%20%26%20Windows!&url=https%3A%2F%2Fsmoothcsv.com"
-                    class="text-link">Tweet</a
-                  >
-                  about it,
-                  <a
-                    href="https://github.com/kohii/smoothcsv3"
-                    class="text-link">star the repository on GitHub</a
-                  >, or <a
-                    href="https://buymeacoffee.com/kohii"
-                    class="text-link">buy me a coffee</a
-                  >.
-                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <Footer />
-    </main>
-  </div>
+      </div>
+    </section>
+    <section class="w-full py-12 md:py-24 bg-gray-100">
+      <div class="container px-4 md:px-6 mx-auto">
+        <h2
+          class="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12"
+        >
+          Ready to Get Started?
+        </h2>
+        <div class="flex flex-col items-center space-y-8 text-center">
+          <p class="mx-auto max-w-[700px] md:text-lg">
+            Download SmoothCSV now and start editing your CSV files with ease.
+          </p>
+          <div class="space-x-4">
+            <a
+              href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.4/SmoothCSV.3_0.1.0-alpha.4_universal.dmg"
+            >
+              <Button variant="primary">Download for macOS</Button>
+            </a>
+            <a
+              href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_x64-setup.exe"
+            >
+              <Button variant="secondary">Download for Windows</Button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full py-8 md:py-16">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="flex flex-col gap-4 md:gap-8 items-center text-center">
+            <h2 class="text-xl md:text-3xl font-medium">About Me</h2>
+            <div class="flex flex-col items-center gap-2">
+              <Image
+                src={avatorImage}
+                alt="Avatar"
+                class="w-20 h-20 rounded-full"
+              />
+              <h3 class="text-md font-medium">kohii</h3>
+              <div class="text-gray-500 flex gap-2 items-center">
+                <a
+                  href="https://github.com/kohii"
+                  title="kohii on GitHub"
+                  class="p-1"
+                >
+                  <GitHubIcon class="w-6 h-6" />
+                </a>
+                <a
+                  href="https://x.com/kohii00"
+                  title="kohii00 on X"
+                  class="p-1"
+                >
+                  <XIcon class="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+            <div>
+              <p class="text-secondary">
+                I'm a full-stack developer and crafting SmoothCSV in my spare
+                time.
+              </p>
+              <p class="text-secondary">
+                If you like SmoothCSV, feel free to <a
+                  href="https://twitter.com/intent/tweet?text=Check%20out%20%23SmoothCSV%2C%20the%20ultimate%20%23CSVeditor%20for%20macOS%20%26%20Windows!&url=https%3A%2F%2Fsmoothcsv.com"
+                  class="text-link">Tweet</a
+                >
+                about it,
+                <a href="https://github.com/kohii/smoothcsv3" class="text-link"
+                  >star the repository on GitHub</a
+                >, or <a href="https://buymeacoffee.com/kohii" class="text-link"
+                  >buy me a coffee</a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
