@@ -40,4 +40,4 @@ These Terms are governed by and construed in accordance with the laws of Japan. 
 
 ## 8. Contact Information
 
-If you have any questions or concerns regarding these Terms, please contact us at [support@smoothcsv.com](mailto:support@smoothcsv.com).
+If you have any questions or concerns regarding these Terms, please contact us at [hello@smoothcsv.com](mailto:hello@smoothcsv.com).

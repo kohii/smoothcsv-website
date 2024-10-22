@@ -27,7 +27,7 @@ We may update this Privacy Policy from time to time. We will notify you of any c
 
 ## 5. Contact Information
 
-If you have any questions or concerns about this Privacy Policy, please contact us at [support@smoothcsv.com](mailto:support@smoothcsv.com).
+If you have any questions or concerns about this Privacy Policy, please contact us at [hello@smoothcsv.com](mailto:hello@smoothcsv.com).
 
 ## 6. Governing Law
 
