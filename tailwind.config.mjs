@@ -9,14 +9,14 @@ export default {
       textColor: {
 				primary: "rgb(36, 36, 36)",
 				secondary: "rgb(71, 85, 105)",
-        link: "#18A497",
+        link: "#007A6C",
 			},
       borderColor: {
 				DEFAULT: "rgb(229, 229, 229)",
 				focused: colors.sky[600],
 			},
       colors: {
-        primary: "#18A497"
+        primary: "#007A6C"
       }
     },
 	},
