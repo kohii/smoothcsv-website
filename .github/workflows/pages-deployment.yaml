@@ -27,9 +27,8 @@ jobs:
         id: extract_branch
 
       - name: Deploy
-        uses: cloudflare/wrangler-action@3.0.0
+        run: npm run wrangler pages deploy dist --project-name smoothcsv-website --branch "${{ steps.extract_branch.outputs.branch }}" --commit-hash ${{ github.sha }}
         if: github.repository == 'kohii/smoothcsv-website'
-        with:
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy dist --project-name smoothcsv-website --branch "${{ steps.extract_branch.outputs.branch }}" --commit-hash ${{ github.sha }}
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
