@@ -1,0 +1,23 @@
+---
+import Button from "./Button.astro";
+---
+
+<div class="group">
+  <div class="flex gap-3 items-center justify-center flex-wrap">
+    <a
+      href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.4/SmoothCSV.3_0.1.0-alpha.4_universal.dmg"
+    >
+      <Button variant="primary">Download for macOS</Button>
+    </a>
+    <a
+      href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_x64-setup.exe"
+    >
+      <Button variant="secondary">Download for Windows</Button>
+    </a>
+  </div>
+  <p class="text-xs text-gray-600 p-2 opacity-0 group-hover:opacity-100">
+    By using SmoothCSV, you agree to its <a href="/privacy" class="underline"
+      >Privacy Policy</a
+    > and <a href="/terms" class="underline">Terms of Use</a>.
+  </p>
+</div>

@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/BaseLayout.astro";
-import Button from "@components/Button.astro";
 import GitHubIcon from "@components/GitHubIcon.astro";
 import XIcon from "@components/XIcon.astro";
 import "./index.css";
@@ -14,6 +13,7 @@ import commandPaletteImage from "@assets/command-palette.png";
 import perfImage from "@assets/perf.png";
 import crossPlatformImage from "@assets/cross-platform.png";
 import avatorImage from "@assets/kohii.jpg";
+import DownloadLinks from "@components/DownloadLinks.astro";
 ---
 
 <Layout title="SmoothCSV - The ultimate CSV editor for macOS & Windows">
@@ -31,18 +31,7 @@ import avatorImage from "@assets/kohii.jpg";
               SmoothCSV is a powerful and intuitive tool for editing and CSV
               files.
             </p>
-            <div class="space-x-4">
-              <a
-                href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.4/SmoothCSV.3_0.1.0-alpha.4_universal.dmg"
-              >
-                <Button variant="primary"> Download for macOS </Button>
-              </a>
-              <a
-                href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_x64-setup.exe"
-              >
-                <Button variant="secondary"> Download for Windows </Button>
-              </a>
-            </div>
+            <DownloadLinks />
             <Image src={heroImage} alt="Screenshot" class="w-full" />
           </div>
         </div>
@@ -150,18 +139,7 @@ import avatorImage from "@assets/kohii.jpg";
           <p class="mx-auto max-w-[700px] md:text-lg">
             Download SmoothCSV now and start editing your CSV files with ease.
           </p>
-          <div class="space-x-4">
-            <a
-              href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.4/SmoothCSV.3_0.1.0-alpha.4_universal.dmg"
-            >
-              <Button variant="primary">Download for macOS</Button>
-            </a>
-            <a
-              href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_x64-setup.exe"
-            >
-              <Button variant="secondary">Download for Windows</Button>
-            </a>
-          </div>
+          <DownloadLinks />
         </div>
       </div>
     </section>
