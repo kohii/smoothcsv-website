@@ -7,12 +7,16 @@ import Button from "./Button.astro";
     <a
       href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.4/SmoothCSV.3_0.1.0-alpha.4_universal.dmg"
     >
-      <Button variant="primary">Download for macOS</Button>
+      <Button variant="primary" class="download-button"
+        >Download for macOS</Button
+      >
     </a>
     <a
       href="https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_x64-setup.exe"
     >
-      <Button variant="secondary">Download for Windows</Button>
+      <Button variant="secondary" class="download-button"
+        >Download for Windows</Button
+      >
     </a>
   </div>
   <p class="text-xs text-gray-600 pt-2 opacity-0 group-hover:opacity-100">
@@ -32,7 +36,7 @@ import Button from "./Button.astro";
   function swapButtonStyles() {
     const os = detectOS();
     if (os === "Windows") {
-      const buttons = document.querySelectorAll("button");
+      const buttons = document.querySelectorAll("button.download-button");
       buttons.forEach((button) => {
         if (button.classList.contains("primary")) {
           button.classList.remove("primary");

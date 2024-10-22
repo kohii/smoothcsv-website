@@ -2,9 +2,10 @@
 export interface Props {
   children: string;
   variant: "primary" | "secondary";
+  class?: string;
 }
 
-const { variant } = Astro.props;
+const { variant, class: className } = Astro.props;
 ---
 
 <style>
@@ -20,6 +21,7 @@ const { variant } = Astro.props;
   class:list={[
     "font-medium text-lg btn-primary py-2 px-6 w-full rounded",
     variant,
+    className,
   ]}
 >
   <slot />
