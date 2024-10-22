@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Macro - SmoothCSV 2</title>
+	<meta name="description" content="SmoothCSV is a awesome CSV file editor.
+">
+
+	<link rel="stylesheet" href="/2/css/main.css">
+	<link rel="canonical" href="https://smoothcsv.com/2/macro/">
+
+	<script type="text/javascript" async="async">
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-44530382-1', 'smoothcsv.com');
+		ga('send', 'pageview');
+	</script>
+
+</head>
+
+
+<body>
+
+	<header class="site-header">
+
+		<div class="wrapper">
+
+			<a class="site-title" href="/2/">SmoothCSV 2</a>
+
+			<nav class="site-nav">
+				<a href="#" class="menu-icon">
+					<svg viewBox="0 0 18 15">
+						<path fill="#424242"
+							d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" />
+						<path fill="#424242"
+							d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" />
+						<path fill="#424242"
+							d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" />
+					</svg>
+				</a>
+
+				<div class="trigger">
+
+
+					<a class="page-link" href="/2/download/">Download</a>
+
+
+
+					<a class="page-link" href="/2/docs/">Docs</a>
+
+
+
+					<a class="page-link" href="/2/macro/">Macro</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				</div>
+			</nav>
+
+		</div>
+
+	</header>
+
+
+	<div class="page-content">
+		<div class="wrapper">
+			<h1 id="macro">Macro</h1>
+
+			<h2 id="overview">Overview</h2>
+
+			<p>You can automate series of tasks by writing macros.
+				Macros are written in JavaScript and executed in SmoothCSV Application.</p>
+
+			<p>Macros would be executed through <a href="https://www.mozilla.org/rhino/">Rhino</a>, which is an implementation
+				of JavaScript written in Java.</p>
+
+			<p>There are basically 2 ways to create macros.</p>
+
+			<ul>
+				<li>Record keys<br />
+					You can record series of keyboard commands by selecting the menu <code
+						class="language-plaintext highlighter-rouge">Start Recording Macro</code>.
+					Then select <code class="language-plaintext highlighter-rouge">Stop Recording Macro</code> to stop recording.
+					It will generate JavaScript code and you can see it in the <code
+						class="language-plaintext highlighter-rouge">Macro Editor</code> panel.</li>
+				<li>Manually write codes in JavaScript<br />
+					You can write macros in <code class="language-plaintext highlighter-rouge">Macro Editor</code> panel. <code
+						class="language-plaintext highlighter-rouge">Macro Editor</code> panel will be shown by selecting the menu
+					<code class="language-plaintext highlighter-rouge">Toggle Macro Tools</code>.
+				</li>
+			</ul>
+
+			<h3 id="global-variables">Global Variables</h3>
+
+			<p>You can use the following global variables.</p>
+
+			<ul>
+				<li><a href="/2/macro_api/com/smoothcsv/core/macro/api/App.html">App</a> (class)<br />
+					A class that represents the application itself.</li>
+				<li><a href="/2/macro_api/com/smoothcsv/core/macro/api/Clipboard.html">Clipboard</a> (class)<br />
+					A class that provides static methods to access the OS’s clipboard.</li>
+				<li><a href="/2/macro_api/com/smoothcsv/core/macro/api/Window.html">Window</a> (class)<br />
+					A class that provides static methods to show dialogs.</li>
+				<li><a href="/2/macro_api/com/smoothcsv/core/macro/api/CsvProperties.html">CsvProperties</a> (class)<br />
+					A class that represents CSV Properties.</li>
+				<li><a href="/2/macro_api/com/smoothcsv/core/macro/api/Macro.html">Macro</a> (class)<br />
+					A class which encapsulates macro script. You can call another macro from a main macro through this class.</li>
+				<li><code class="language-plaintext highlighter-rouge">console</code> (the instance of <a
+						href="/2/macro_api/com/smoothcsv/core/macro/api/Console.html">Console</a>)<br />
+					A object which is very similar to browsers’ console API. <code
+						class="language-plaintext highlighter-rouge">console</code> has a method <code
+						class="language-plaintext highlighter-rouge">log</code> that outputs its arguments to SmoothCSV’s console.
+				</li>
+			</ul>
+
+			<p>Global scope itself can be accessed by the name <code
+					class="language-plaintext highlighter-rouge">global</code>.</p>
+
+			<h3 id="macro-api">Macro API</h3>
+
+			<p><a href="/2/macro_api/index.html" target="_blank">Open Macro API (Javadoc)</a></p>
+
+			<p>Note: SmoothCSV’s macro APIs are implemented in Java, though macro scripts themselves are written in
+				JavaScript.</p>
+
+		</div>
+	</div>
+
+	<footer class="site-footer">
+
+		<div class="wrapper">
+
+			<!--<h2 class="footer-heading">SmoothCSV 2</h2>-->
+
+			<div class="footer-col-wrapper">
+				<div class="footer-col footer-col-1">
+					<ul class="contact-list">
+						<li>SmoothCSV 2</li>
+					</ul>
+				</div>
+
+				<div class="footer-col footer-col-2">
+					<ul class="social-media-list">
+
+
+
+					</ul>
+				</div>
+
+				<div class="footer-col footer-col-3">
+					<p>Copyright (C) 2016 kohii All Rights Reserved.</p>
+				</div>
+			</div>
+
+		</div>
+
+	</footer>
+
+</body>
+
+</html>
