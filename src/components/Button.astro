@@ -7,12 +7,20 @@ export interface Props {
 const { variant } = Astro.props;
 ---
 
+<style>
+  .primary {
+    @apply bg-primary text-white;
+  }
+  .secondary {
+    @apply bg-gray-300 text-primary;
+  }
+</style>
+
 <button
-  class:list={{
-    "font-medium text-lg btn-primary py-2 px-6 w-full": true,
-    "bg-primary text-white rounded": variant === "primary",
-    "bg-gray-300 text-primary rounded": variant === "secondary",
-  }}
+  class:list={[
+    "font-medium text-lg btn-primary py-2 px-6 w-full rounded",
+    variant,
+  ]}
 >
   <slot />
 </button>

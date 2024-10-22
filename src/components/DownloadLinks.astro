@@ -21,3 +21,29 @@ import Button from "./Button.astro";
     > and <a href="/terms" class="underline">Terms of Use</a>.
   </p>
 </div>
+<script>
+  function detectOS() {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    if (userAgent.indexOf("win") > -1) return "Windows";
+    if (userAgent.indexOf("mac") > -1) return "macOS";
+    return "Unknown";
+  }
+
+  function swapButtonStyles() {
+    const os = detectOS();
+    if (os === "Windows") {
+      const buttons = document.querySelectorAll("button");
+      buttons.forEach((button) => {
+        if (button.classList.contains("primary")) {
+          button.classList.remove("primary");
+          button.classList.add("secondary");
+        } else {
+          button.classList.remove("secondary");
+          button.classList.add("primary");
+        }
+      });
+    }
+  }
+
+  swapButtonStyles();
+</script>
