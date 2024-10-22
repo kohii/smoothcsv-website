@@ -1,0 +1,64 @@
+---
+import AppIcon from "./AppIcon.astro";
+import GitHubIcon from "./GitHubIcon.astro";
+import XIcon from "./XIcon.astro";
+---
+
+<footer
+  class="py-8 bg-gray-800 text-gray-300 [&_a]:text-gray-400 hover:[&_a]:text-gray-200"
+>
+  <div class="container mx-auto px-4 md:px-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-2 pb-1">
+          <AppIcon class="w-7 h-7" />
+          <span class="text-lg font-semibold">SmoothCSV</span>
+        </div>
+        <div class="flex gap-2 items-center">
+          <a href="https://github.com/kohii" title="kohii on GitHub">
+            <GitHubIcon class="w-6 h-6" />
+          </a>
+          <a href="https://x.com/kohii00" title="kohii00 on X">
+            <XIcon class="w-4 h-4" />
+          </a>
+        </div>
+        <p class="text-gray-400 text-sm">&copy; 2024 kohii</p>
+      </div>
+      <div>
+        <h4 class="text-md font-medium pb-2">Archives</h4>
+        <ul class="text-sm">
+          <li class="py-0.5">
+            <a href="/1">SmoothCSV v1</a>
+          </li>
+          <li class="py-0.5">
+            <a href="/2">SmoothCSV v2</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-md font-medium pb-2">Resources</h4>
+        <ul class="text-sm">
+          <li class="py-0.5">
+            <a href="/privacy">Privacy Policy</a>
+          </li>
+          <li class="py-0.5">
+            <a href="/terms">Terms of Use</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-md font-medium pb-2">Contact</h4>
+        <ul class="text-sm">
+          <li class="py-0.5">
+            <a href="https://github.com/kohii/smoothcsv3/issues">
+              Report an Issue
+            </a>
+          </li>
+          <li class="py-0.5">
+            <a href="mailto:support@smoothcsv.com"> Email </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

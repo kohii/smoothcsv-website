@@ -1,0 +1,18 @@
+---
+export interface Props {
+  children: string;
+  variant: "primary" | "secondary";
+}
+
+const { variant } = Astro.props;
+---
+
+<button
+  class:list={{
+    "font-medium text-lg btn-primary py-2 px-6 w-full md:w-auto mb-4": true,
+    "bg-primary text-white rounded": variant === "primary",
+    "bg-gray-300 text-primary rounded": variant === "secondary",
+  }}
+>
+  <slot />
+</button>
