@@ -16,7 +16,7 @@ export default {
 				focused: colors.sky[600],
 			},
       colors: {
-        primary: "#007A6C"
+        primary: "#008575"
       }
     },
 	},
