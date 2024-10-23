@@ -33,10 +33,7 @@ jobs:
         if: ${{ steps.extract_branch.outputs.branch }} != 'main'
 
       - name: Deploy
-        run: npm run wrangler -- pages deploy dist \
-          --project-name smoothcsv-website \
-          --branch "${{ steps.extract_branch.outputs.branch }}" \
-          --commit-hash ${{ github.sha }}
+        run: npm run wrangler -- pages deploy dist --project-name smoothcsv-website --branch "${{ steps.extract_branch.outputs.branch }}" --commit-hash ${{ github.sha }}
         if: github.repository == 'kohii/smoothcsv-website'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
