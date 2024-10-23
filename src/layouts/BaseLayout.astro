@@ -31,8 +31,8 @@ const {
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://smoothcsv.com/og.png" />
-    <meta property="og:url" content="https://smoothcsv.com" />
+    <meta property="og:image" content={`${Astro.site}og.png`} />
+    <meta property="og:url" content={Astro.site} />
     <meta property="og:description" content={description} />
   </head>
   <body class="text-primary min-h-screen grid grid-rows-[auto_1fr_auto]">
