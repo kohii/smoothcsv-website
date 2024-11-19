@@ -1,0 +1,14 @@
+---
+const { pathname } = Astro.url;
+const isJapanese = pathname.startsWith("/ja");
+---
+
+<div class="language-picker">
+	<a
+		href={isJapanese ? pathname.replace("/ja", "") : `/ja${pathname}`}
+		class="text-sm hover:underline"
+	>
+		{isJapanese ? "English" : "日本語"}
+	</a>
+</div>
+

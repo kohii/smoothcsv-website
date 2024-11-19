@@ -1,9 +1,9 @@
 ---
-export interface Props {
-  children: string;
-  variant: "primary" | "secondary";
-  class?: string;
-}
+export type Props = {
+	children: string;
+	variant: "primary" | "secondary";
+	class?: string;
+};
 
 const { variant, class: className } = Astro.props;
 ---

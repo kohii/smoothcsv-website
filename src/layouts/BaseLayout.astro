@@ -1,15 +1,15 @@
 ---
-import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
 
 interface Props {
-  title: string;
-  description?: string;
+	title: string;
+	description?: string;
 }
 
 const {
-  title,
-  description = "SmoothCSV is the ultimate CSV editor for macOS & Windows. It's fast, easy to use, and packed with powerful features.",
+	title,
+	description = "SmoothCSV is the ultimate CSV editor for macOS & Windows. It's fast, easy to use, and packed with powerful features.",
 } = Astro.props;
 ---
 
