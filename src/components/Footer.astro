@@ -2,6 +2,7 @@
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import AppIcon from "./AppIcon.astro";
 import GitHubIcon from "./GitHubIcon.astro";
+import LanguagePicker from "./LanguagePicker.astro";
 import XIcon from "./XIcon.astro";
 
 const lang = getLangFromUrl(Astro.url);
@@ -11,7 +12,7 @@ const t = useTranslations(lang);
 <footer
   class="py-8 bg-gray-800 text-gray-300 [&_a]:text-gray-400 hover:[&_a]:text-gray-200"
 >
-  <div class="container mx-auto px-4 md:px-16">
+  <div class="container mx-auto px-4 md:px-16 flex flex-col gap-4">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
       <div class="flex flex-col gap-2">
         <div class="flex items-center gap-2 pb-1">
@@ -26,7 +27,6 @@ const t = useTranslations(lang);
             <XIcon class="w-4 h-4" />
           </a>
         </div>
-        <p class="text-gray-400 text-sm">&copy; 2024 kohii</p>
       </div>
       <div>
         <h4 class="text-md font-medium pb-2">Resources</h4>
@@ -63,6 +63,11 @@ const t = useTranslations(lang);
           </li>
         </ul>
       </div>
+    </div>
+    <hr class="border-gray-600" />
+    <div class="flex items-center justify-between">
+      <p class="text-gray-400 text-sm">&copy; 2024 kohii</p>
+      <LanguagePicker />
     </div>
   </div>
 </footer>
