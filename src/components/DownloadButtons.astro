@@ -1,29 +1,32 @@
 ---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import Button from "./Button.astro";
+import StyledText from "./StyledText.astro";
 
-const MAC_DOWNLOAD_URL =
-  "https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_universal.dmg";
-const WINDOWS_DOWNLOAD_URL =
-  "https://github.com/kohii/smoothcsv3/releases/download/v0.1.0-alpha.5/SmoothCSV.3_0.1.0-alpha.5_x64-setup.exe";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const VERSION = "3.0.0-beta.1";
+
+const MAC_DOWNLOAD_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}/SmoothCSV_${VERSION}_universal.dmg`;
+const WINDOWS_DOWNLOAD_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}/SmoothCSV_${VERSION}_x64-setup.exe`;
 ---
 
 <div class="group">
   <div class="flex gap-3 items-center justify-center flex-wrap">
     <a href={MAC_DOWNLOAD_URL}>
-      <Button variant="primary" class="download-button"
-        >Download for macOS</Button
-      >
+      <Button variant="primary" class="download-button">
+        {t("download.mac")}
+      </Button>
     </a>
     <a href={WINDOWS_DOWNLOAD_URL}>
-      <Button variant="secondary" class="download-button"
-        >Download for Windows</Button
-      >
+      <Button variant="secondary" class="download-button">
+        {t("download.windows")}
+      </Button>
     </a>
   </div>
-  <p class="text-xs text-gray-600 pt-2 opacity-0 group-hover:opacity-100">
-    By using SmoothCSV, you agree to the <a href="/privacy" class="underline"
-      >Privacy Policy</a
-    > and <a href="/terms" class="underline">Terms of Use</a>.
+  <p class="text-xs text-gray-600 pt-2 opacity-0 group-hover:opacity-100 [&>a]:underline">
+    <StyledText text={t("privacy.text")} />
   </p>
 </div>
 <script>

@@ -1,10 +1,15 @@
 ---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import AppIcon from "./AppIcon.astro";
 import GitHubIcon from "./GitHubIcon.astro";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="px-4 lg:px-6 h-14 flex items-center container mx-auto">
-  <a class="flex items-center justify-center" href="/" title="Home">
+  <a class="flex items-center justify-center" href={getRelativeLocaleUrl(lang, "/")} title="Home">
     <AppIcon class="w-8 h-8" />
 
     <span class="ml-2 text-xl font-semibold">SmoothCSV</span>

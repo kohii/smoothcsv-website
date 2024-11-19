@@ -1,0 +1,29 @@
+---
+import { tokenizeMarkdownText } from "@utils/tokenizeMarkdownText";
+
+export type Props = {
+	text: string;
+};
+const { text } = Astro.props;
+
+const lines = (text ?? "").split("\n");
+---
+
+<>
+  {
+    lines.map((line, index) => {
+      return (
+        <>
+          {index > 0 && <br />}
+          {tokenizeMarkdownText(line).map((token) => {
+            if (token.type === "text") {
+              return <span>{token.value}</span>;
+            } else {
+              return <a href={token.href}>{token.value}</a>;
+            }
+          })}
+        </>
+      );
+    })
+  }
+</>

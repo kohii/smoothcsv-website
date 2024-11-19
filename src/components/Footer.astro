@@ -1,7 +1,11 @@
 ---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import AppIcon from "./AppIcon.astro";
 import GitHubIcon from "./GitHubIcon.astro";
 import XIcon from "./XIcon.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer
@@ -28,10 +32,10 @@ import XIcon from "./XIcon.astro";
         <h4 class="text-md font-medium pb-2">Resources</h4>
         <ul class="text-sm">
           <li class="py-0.5">
-            <a href="/privacy">Privacy Policy</a>
+            <a href="/privacy">{t("footer.resources.privacy")}</a>
           </li>
           <li class="py-0.5">
-            <a href="/terms">Terms of Use</a>
+            <a href="/terms">{t("footer.resources.terms")}</a>
           </li>
         </ul>
       </div>
@@ -51,11 +55,11 @@ import XIcon from "./XIcon.astro";
         <ul class="text-sm">
           <li class="py-0.5">
             <a href="https://github.com/kohii/smoothcsv3/issues">
-              Report an Issue
+              {t("footer.contact.reportIssue")}
             </a>
           </li>
           <li class="py-0.5">
-            <a href="mailto:hello@smoothcsv.com"> Email </a>
+            <a href="mailto:hello@smoothcsv.com">{t("footer.contact.email")}</a>
           </li>
         </ul>
       </div>

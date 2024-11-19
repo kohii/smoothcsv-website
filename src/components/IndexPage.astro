@@ -1,0 +1,215 @@
+---
+import { Image } from "astro:assets";
+import GitHubIcon from "@components/GitHubIcon.astro";
+import XIcon from "@components/XIcon.astro";
+import Layout from "../layouts/BaseLayout.astro";
+
+import commandPaletteImage from "@assets/command-palette.png";
+import crossPlatformImage from "@assets/cross-platform.png";
+import editingImage from "@assets/editing.png";
+import heroImage from "@assets/hero.png";
+import avatorImage from "@assets/kohii.jpg";
+import perfImage from "@assets/perf.png";
+import replaceImage from "@assets/replace.png";
+import sortImage from "@assets/sort.png";
+import DownloadButtons from "@components/DownloadButtons.astro";
+import StyledText from "@components/StyledText.astro";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<style>
+  .grid-bg {
+    background-image: linear-gradient(to right, #80808012 1px, transparent 1px),
+      linear-gradient(to bottom, #80808012 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+</style>
+
+<Layout title={t("meta.title")}>
+  <main>
+    <section class="w-full py-12 md:pt-24 lg:pt-32 grid-bg">
+      <div class="container mx-auto">
+        <div class="px-4 md:px-6">
+          <div class="flex flex-col items-center space-y-8 text-center">
+            <h1
+              class="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
+            >
+              {t("hero.title")}
+            </h1>
+            <p class="mx-auto max-w-[700px] md:text-xl">
+              {t("hero.description")}
+            </p>
+            <DownloadButtons />
+            <Image
+              src={heroImage}
+              alt="Screenshot"
+              class="w-full"
+              width="1488"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full py-8 md:py-16">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="flex flex-col space-y-4">
+              <h2 class="text-xl md:text-3xl font-medium">
+                {t("easyEditing.title")}
+              </h2>
+              <p>{t("easyEditing.description")}</p>
+            </div>
+            <div class="md:col-span-2 border overflow-hidden rounded-xl">
+              <Image
+                src={editingImage}
+                alt="Editing"
+                class="w-full"
+                width="950"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full py-8 md:py-16">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="flex flex-col space-y-4">
+              <h2 class="text-xl md:text-3xl font-medium">
+                {t("powerfulTools.title")}
+              </h2>
+              <p><StyledText text={t("powerfulTools.description")} /></p>
+            </div>
+            <div class="md:col-span-2 grid gap-2 lg:gap-3 lg:grid-cols-2">
+              <div class="lg:col-span-2 border overflow-hidden shadow-md">
+                <Image
+                  src={replaceImage}
+                  alt="Replace"
+                  class="w-full"
+                  width="950"
+                />
+              </div>
+              <div class="border overflow-hidden rounded-md shadow-md">
+                <Image src={sortImage} alt="Sort" class="w-full" width="468" />
+              </div>
+              <div class="border overflow-hidden rounded shadow-md">
+                <Image
+                  src={commandPaletteImage}
+                  alt="Command Palette"
+                  class="w-full"
+                  width="468"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full py-8 md:py-16">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="flex flex-col space-y-4">
+              <h2 class="text-xl md:text-3xl font-medium">
+                {t("fast.title")}
+              </h2>
+              <p><StyledText text={t("fast.description")} /></p>
+            </div>
+            <div class="md:col-span-2">
+              <Image
+                src={perfImage}
+                alt="CSV opening performance for 100MB file. SmoothCSV is 12 times faster than Excel"
+                class="w-full"
+                width="952"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full py-8 md:py-16">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="flex flex-col space-y-4">
+              <h2 class="text-xl md:text-3xl font-medium">
+                {t("crossPlatform.title")}
+              </h2>
+              <p><StyledText text={t("crossPlatform.description")} /></p>
+            </div>
+            <div class="md:col-span-2">
+              <div class="overflow-hidden rounded-xl">
+                <Image
+                  src={crossPlatformImage}
+                  alt="Cross-Platform"
+                  class="w-full"
+                  width="952"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <section class="w-full py-12 md:py-24 bg-gray-100">
+    <div class="container px-4 md:px-6 mx-auto">
+      <h2
+        class="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12"
+      >
+        {t("getStarted.title")}
+      </h2>
+      <div class="flex flex-col items-center space-y-8 text-center">
+        <p class="mx-auto max-w-[700px] md:text-lg">
+          <StyledText text={t("getStarted.description")} />
+        </p>
+        <DownloadButtons />
+      </div>
+    </div>
+  </section>
+  <section class="w-full py-8 md:py-16">
+    <div class="container mx-auto">
+      <div class="px-4 lg:px-12">
+        <div class="flex flex-col gap-4 md:gap-8 items-center text-center">
+          <h2 class="text-xl md:text-3xl font-medium">
+            {t("aboutMe.title")}
+          </h2>
+          <div class="flex flex-col items-center gap-2">
+            <Image
+              src={avatorImage}
+              alt="Avatar"
+              class="w-20 h-20 rounded-full"
+              width="80"
+            />
+            <h3 class="text-md font-medium">kohii</h3>
+            <div class="text-gray-500 flex gap-2 items-center">
+              <a
+                href="https://github.com/kohii"
+                title="kohii on GitHub"
+                class="p-1"
+              >
+                <GitHubIcon class="w-6 h-6" />
+              </a>
+              <a href="https://x.com/kohii00" title="kohii00 on X" class="p-1">
+                <XIcon class="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+          <div>
+            <p class="text-secondary">
+              <StyledText text={t("aboutMe.description")} />
+            </p>
+            <p class="text-secondary [&>a]:text-link hover:[&>a]:underline">
+              <StyledText text={t("aboutMe.support")} />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
