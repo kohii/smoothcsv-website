@@ -1,11 +1,10 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { getLangFromUrl } from "@i18n/utils";
 import AppIcon from "./AppIcon.astro";
 import GitHubIcon from "./GitHubIcon.astro";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <header class="px-4 lg:px-6 h-14 flex items-center container mx-auto">

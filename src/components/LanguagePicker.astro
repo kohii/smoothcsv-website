@@ -1,6 +1,5 @@
 ---
 import { languages } from "@i18n/ui";
-import { saveLocaleToCookies } from "@i18n/settings";
 
 const currentLocale = Astro.currentLocale;
 const supportedLanguages = Astro.locals.supportedLanguages;
@@ -14,7 +13,7 @@ const supportedLanguages = Astro.locals.supportedLanguages;
 	<select id="language-picker" class="bg-transparent">
 		{supportedLanguages.map((locale) => (
 			<option value={locale} selected={currentLocale === locale}>
-				{languages[locale]}
+				{languages[locale as keyof typeof languages] ?? locale}
 			</option>
 		))}
 	</select>
@@ -23,7 +22,8 @@ const supportedLanguages = Astro.locals.supportedLanguages;
 <script>
 	const languagePicker = document.getElementById("language-picker");
 	languagePicker?.addEventListener("change", (e) => {
-		document.cookie = `locale=${e.target.value}; path=/; max-age=31536000`;
+		const target = e.target as HTMLSelectElement;
+		document.cookie = `locale=${target.value}; path=/; max-age=31536000`;
 		window.location.reload();
 	});
 </script>
