@@ -19,6 +19,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Lint
+        run: npm run lint
+
       - name: Extract branch name
         shell: bash
         run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
