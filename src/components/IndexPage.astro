@@ -121,12 +121,14 @@ const t = useTranslations(lang);
               <p><StyledText text={t("fast.description")} /></p>
             </div>
             <div class="md:col-span-2">
+              <div class="overflow-hidden rounded-xl">
               <Image
                 src={perfImage}
                 alt="CSV opening performance for 100MB file. SmoothCSV is 12 times faster than Excel"
                 class="w-full"
                 width="952"
-              />
+                />
+              </div>
             </div>
           </div>
         </div>

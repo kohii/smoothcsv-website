@@ -48,14 +48,14 @@ export const ui = {
 		"easyEditing.title": "直感的な操作性",
 		"easyEditing.description":
 			"スプレッドシートのような使い慣れたインターフェイスで CSV ファイルを快適に編集できます。",
-		"powerfulTools.title": "充実した機能",
+		"powerfulTools.title": "豊富な機能",
 		"powerfulTools.description":
 			"検索、置換、ソートなど、豊富な機能を搭載。\nすべての機能にコマンドパレットから素早くアクセスできます。",
 		"fast.title": "超高速",
 		"fast.description": "大容量ファイルでもすぐに開き、編集できます。",
 		"crossPlatform.title": "クロスプラットフォーム",
 		"crossPlatform.description":
-			"Windows、macOS に対応。\nLinux 版も開発中です。",
+			"Windows、macOS に対応。\nLinux にも対応予定です。",
 		"getStarted.title": "さっそく始めましょう",
 		"getStarted.description":
 			"SmolothCSV を今すぐダウンロードして、CSV ファイルを思い通りに編集しましょう。",
