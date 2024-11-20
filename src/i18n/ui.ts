@@ -34,7 +34,7 @@ export const ui = {
 		"download.mac": "Download for macOS",
 		"download.windows": "Download for Windows",
 		"privacy.text":
-			"By using SmoothCSV, you agree to the [Privacy Policy](https://smoothcsv.com/privacy) and [Terms of Use](https://smoothcsv.com/terms).",
+			"By using SmoothCSV, you agree to the [Privacy Policy](/privacy) and [Terms of Use](/terms).",
 		"footer.resources.privacy": "Privacy Policy",
 		"footer.resources.terms": "Terms of Use",
 		"footer.contact.reportIssue": "Report an Issue",
@@ -56,7 +56,7 @@ export const ui = {
 		"crossPlatform.title": "クロスプラットフォーム",
 		"crossPlatform.description":
 			"Windows、macOS に対応。\nLinux にも対応予定です。",
-		"getStarted.title": "さっそく始めましょう",
+		"getStarted.title": "Ready to Get Started?",
 		"getStarted.description":
 			"SmolothCSV を今すぐダウンロードして、CSV ファイルを思い通りに編集しましょう。",
 		"aboutMe.title": "About Me",
@@ -67,7 +67,7 @@ export const ui = {
 		"download.mac": "macOS 版をダウンロード",
 		"download.windows": "Windows 版をダウンロード",
 		"privacy.text":
-			"SmoothCSV を使用することで、[プライバシーポリシー](https://smoothcsv.com/privacy)と[利用規約](https://smoothcsv.com/terms)に同意したことになります。",
+			"SmoothCSV を使用することで、[プライバシーポリシー](/privacy) と [利用規約](/terms)に同意したことになります。",
 		"footer.resources.privacy": "プライバシーポリシー",
 		"footer.resources.terms": "利用規約",
 		"footer.contact.reportIssue": "問題を報告",
