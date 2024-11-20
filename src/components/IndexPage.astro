@@ -19,7 +19,10 @@ import { getLangFromUrl, useTranslations } from "@i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-Astro.response.headers.set("Cache-Control", "public, max-age=300, s-maxage=600");
+Astro.response.headers.set(
+	"Cache-Control",
+	"public, max-age=300, s-maxage=600",
+);
 ---
 
 <style>
