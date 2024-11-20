@@ -1,0 +1,43 @@
+# Static assets should be cached for 1 year in the browser and CDN
+# It is safe because they have a hash in the URL
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Archived pages should be cached for 1 hours in the browser and 1 day in the CDN
+/1/*
+  Cache-Control: public, max-age=3600, s-maxage=86400
+/2/*
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+# Version file for SmoothCSV 1 should be cached for 1 week in the CDN
+/latestversionid
+  Cache-Control: public, s-maxage=604800
+
+# Version file for SmoothCSV 2 should be cached for 1 week in the CDN
+/v1/versions/latest-mac.json
+  Cache-Control: public, s-maxage=604800
+
+# Favicons and manifest should be cached for 1 hours and 1 day in the CDN
+/apple-touch-icon.png
+  Cache-Control: public, max-age=3600, s-maxage=86400
+/favicon-48x48.png
+  Cache-Control: public, max-age=3600, s-maxage=86400
+/favicon.ico
+  Cache-Control: public, max-age=3600, s-maxage=86400
+/favicon.svg
+  Cache-Control: public, max-age=3600, s-maxage=86400
+/og.png
+  Cache-Control: public, max-age=3600, s-maxage=86400
+/site.webmanifest
+  Cache-Control: public, max-age=3600, s-maxage=86400
+/web-app-manifest-192x192.png
+  Cache-Control: public, max-age=3600, s-maxage=86400
+/web-app-manifest-512x512.png
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+# Privacy and terms should be cached for 5 minutes in the browser and 1 hour in the CDN
+/privacy
+  Cache-Control: public, max-age=300, s-maxage=3600
+/terms
+  Cache-Control: public, max-age=300, s-maxage=3600
+
