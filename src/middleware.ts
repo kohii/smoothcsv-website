@@ -1,7 +1,7 @@
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { defineMiddleware } from "astro:middleware";
 import { defaultLang } from "@i18n/ui";
 import { getLangFromUrl, getPathWithoutLang } from "@i18n/utils";
-import { getRelativeLocaleUrl, } from "astro:i18n";
 
 const supportedLanguagesPerPath: Record<string, string[]> = {
 	"/": ["en", "ja"],

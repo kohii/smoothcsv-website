@@ -5,4 +5,3 @@ declare namespace App {
 		supportedLanguages: string[];
 	}
 }
-
