@@ -1,6 +1,8 @@
 ---
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import { getPathWithoutLang } from "@i18n/utils";
 
 interface Props {
 	title: string;
@@ -11,6 +13,8 @@ const {
 	title,
 	description = "SmoothCSV is the ultimate CSV editor for macOS & Windows. It's fast, easy to use, and packed with powerful features.",
 } = Astro.props;
+
+const supportedLanguages = Astro.locals.supportedLanguages;
 ---
 
 <!doctype html>
@@ -26,6 +30,9 @@ const {
     <meta name="apple-mobile-web-app-title" content="SmoothCSV" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
+    {supportedLanguages.map((lang) => (
+      <link rel="alternate" hreflang={lang} href={getAbsoluteLocaleUrl(lang, getPathWithoutLang(Astro.url))} />
+    ))}
     <title>{title}</title>
 
     <!-- Open Graph Meta Tags -->

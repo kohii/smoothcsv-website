@@ -1,10 +1,3 @@
-export const languages = {
-	en: "English",
-	ja: "日本語",
-};
-
-export const defaultLang = "en";
-
 export const ui = {
 	en: {
 		"meta.title": "SmoothCSV - The ultimate CSV editor for macOS & Windows",

@@ -1,11 +1,7 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { defineMiddleware } from "astro:middleware";
-import { defaultLang } from "@i18n/ui";
+import { defaultLang, supportedLanguagesPerPath } from "@i18n/constants";
 import { getLangFromUrl, getPathWithoutLang } from "@i18n/utils";
-
-const supportedLanguagesPerPath: Record<string, string[]> = {
-	"/": ["en", "ja"],
-};
 
 // `context` and `next` are automatically typed
 export const onRequest = defineMiddleware(async (context, next) => {
