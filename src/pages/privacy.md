@@ -5,7 +5,7 @@ layout: ../layouts/MarkdownPageLayout.astro
 
 # Privacy Policy
 
-Effective Date: October 20, 2024
+Effective Date: November 28, 2024
 
 At SmoothCSV ("we," "us," or "our"), we are committed to protecting your privacy. This Privacy Policy explains how we handle any information when you use our desktop application, SmoothCSV (the "App"), available at [https://smoothcsv.com](https://smoothcsv.com/).
 

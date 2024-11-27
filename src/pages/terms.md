@@ -5,7 +5,7 @@ layout: ../layouts/MarkdownPageLayout.astro
 
 # Terms of Use
 
-Effective Date: October 20, 2024
+Effective Date: November 28, 2024
 
 Welcome to SmoothCSV. These Terms of Use ("Terms") govern your access to and use of the SmoothCSV desktop application (the "App") provided by us at [https://smoothcsv.com](https://smoothcsv.com/).
 
