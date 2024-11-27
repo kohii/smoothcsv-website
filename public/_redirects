@@ -1,1 +1,16 @@
 /download/latest /
+
+/allrelease /1/allrelease 301
+/manual /1/manual 301
+/product /1/product 301
+/support /1/support 301
+/release_v1_0_0 /1/release_v1_0_0 301
+/release_v1_0_1 /1/release_v1_0_1 301
+/release_v1_0_2 /1/release_v1_0_2 301
+/release_v1_0_3 /1/release_v1_0_3 301
+/release_v1_0_4 /1/release_v1_0_4 301
+/release_v1_0_5 /1/release_v1_0_5 301
+/release_v1_0_6 /1/release_v1_0_6 301
+/release_v1_0_7 /1/release_v1_0_7 301
+/release /1/release 301
+
