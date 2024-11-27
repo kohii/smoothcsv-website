@@ -2,7 +2,7 @@
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import { getAbsoluteLocaleUrl } from "astro:i18n";
-import { getPathWithoutLang } from "@i18n/utils";
+import { getPathWithoutLang, getLangFromUrl } from "@i18n/utils";
 
 interface Props {
 	title: string;
@@ -14,11 +14,12 @@ const {
 	description = "SmoothCSV is the ultimate CSV editor for macOS & Windows. It's fast, easy to use, and packed with powerful features.",
 } = Astro.props;
 
+const lang = getLangFromUrl(Astro.url);
 const supportedLanguages = Astro.locals.supportedLanguages;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
