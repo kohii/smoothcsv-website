@@ -28,6 +28,7 @@ export const ui = {
 		"download.windows": "Download for Windows",
 		"privacy.text":
 			"By using SmoothCSV, you agree to the [Privacy Policy](/privacy) and [Terms of Use](/terms).",
+		"footer.resources.sourceCode": "Source Code",
 		"footer.resources.privacy": "Privacy Policy",
 		"footer.resources.terms": "Terms of Use",
 		"footer.contact.reportIssue": "Report an Issue",
@@ -61,6 +62,7 @@ export const ui = {
 		"download.windows": "Windows 版をダウンロード",
 		"privacy.text":
 			"SmoothCSV を使用することで、[プライバシーポリシー](/privacy) と [利用規約](/terms)に同意したことになります。",
+		"footer.resources.sourceCode": "ソースコード",
 		"footer.resources.privacy": "プライバシーポリシー",
 		"footer.resources.terms": "利用規約",
 		"footer.contact.reportIssue": "問題を報告",
