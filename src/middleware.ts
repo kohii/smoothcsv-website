@@ -1,6 +1,7 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { defineMiddleware } from "astro:middleware";
 import { defaultLang, supportedLanguagesPerPath } from "@i18n/constants";
+import { decideDisplayLanguage } from "@i18n/decideDisplayLanguage";
 import { getLangFromUrl, getPathWithoutLang } from "@i18n/utils";
 
 // `context` and `next` are automatically typed
@@ -16,49 +17,20 @@ export const onRequest = defineMiddleware(async (context, next) => {
 		return next();
 	}
 
-	// if the locale is set in the cookie, redirect to the url with the locale
-	const localeFromCookie = getLocaleFromCookies(
-		context.request.headers.get("cookie"),
+	const displayLang = decideDisplayLanguage(
+		langFromUrl,
+		supportedLanguages,
+		() => getLocaleFromCookies(context.request.headers.get("cookie")),
+		() => context.request.headers.get("accept-language") ?? undefined,
 	);
 
-	// if the locale is already set, do nothing
-	if (localeFromCookie === langFromUrl) {
+	if (displayLang === langFromUrl) {
 		return next();
 	}
-
-	// if the locale is set in the cookie, redirect to the url with the locale
-	if (localeFromCookie && supportedLanguages.includes(localeFromCookie)) {
-		return context.redirect(
-			getRelativeLocaleUrl(localeFromCookie, pathWithoutLang),
-			302,
-		);
-	}
-
-	// if the locale is explicitly set in the url, do nothing
-	if (langFromUrl !== defaultLang) {
-		return next();
-	}
-
-	// detect the locale from the accept-language header
-	const acceptLanguage = context.request.headers.get("accept-language");
-	if (acceptLanguage) {
-		const languages = acceptLanguage
-			.split(",")
-			.map((lang) => lang.split(";")[0]);
-		for (const language of languages) {
-			if (language && supportedLanguages.includes(language)) {
-				if (language === langFromUrl) {
-					return next();
-				}
-				return context.redirect(
-					getRelativeLocaleUrl(language, pathWithoutLang),
-					302,
-				);
-			}
-		}
-	}
-
-	return next();
+	return context.redirect(
+		getRelativeLocaleUrl(displayLang, pathWithoutLang),
+		302,
+	);
 });
 
 function getLocaleFromCookies(
