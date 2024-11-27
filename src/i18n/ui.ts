@@ -35,10 +35,10 @@ export const ui = {
 		"footer.contact.email": "Email",
 	},
 	ja: {
-		"meta.title": "SmoothCSV - The ultimate CSV editor for macOS & Windows",
+		"meta.title": "SmoothCSV - macOS & Windows 向けの最強のCSVエディター",
 		"hero.title": "The Ultimate CSV Editor",
 		"hero.description":
-			"SmoothCSV は CSV ファイルを編集するための最強のツールです。",
+			"SmoothCSV は 高機能・高性能な CSV ファイルエディターです。",
 		"easyEditing.title": "直感的な操作性",
 		"easyEditing.description":
 			"スプレッドシートのような使い慣れたインターフェイスで CSV ファイルを快適に編集できます。",
