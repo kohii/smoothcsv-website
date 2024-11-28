@@ -1,7 +1,7 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { languages } from "@i18n/constants";
 import { getPathWithoutLang } from "@i18n/utils";
-import { getRelativeLocaleUrl } from "astro:i18n";
 
 const currentLocale = Astro.currentLocale;
 const supportedLanguages = Astro.locals.supportedLanguages;
