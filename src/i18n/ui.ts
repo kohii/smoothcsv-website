@@ -52,7 +52,7 @@ export const ui = {
 			"Windows、macOS に対応。\nLinux にも対応予定です。",
 		"getStarted.title": "Ready to Get Started?",
 		"getStarted.description":
-			"SmolothCSV を今すぐダウンロードして、CSV ファイルを思い通りに編集しましょう。",
+			"SmoothCSV を今すぐダウンロードして、CSV ファイルを思い通りに編集しましょう。",
 		"aboutMe.title": "About Me",
 		"aboutMe.description":
 			"フルスタックエンジニアとして働きながら、個人で SmoothCSV を開発しています。",
