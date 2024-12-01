@@ -2,6 +2,8 @@
 
 /allrelease /1/allrelease 301
 /manual /1/manual 301
+/manuals/ /1/manuals/ 301
+/product /1/product 301
 /product /1/product 301
 /support /1/support 301
 /release_v1_0_0 /1/release_v1_0_0 301
