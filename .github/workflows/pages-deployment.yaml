@@ -32,11 +32,11 @@ jobs:
 
       - name: Build for production
         run: npm run build
-        if: ${{ steps.extract_branch.outputs.branch }} == 'main'
+        if: steps.extract_branch.outputs.branch == 'main'
 
       - name: Build for non-production
         run: npm run build -- --site="https://${{ steps.extract_branch.outputs.branch }}.smoothcsv-website.pages.dev/"
-        if: ${{ steps.extract_branch.outputs.branch }} != 'main'
+        if: steps.extract_branch.outputs.branch != 'main'
 
       - name: Deploy
         run: npm run wrangler -- pages deploy dist --project-name smoothcsv-website --branch "${{ steps.extract_branch.outputs.branch }}" --commit-hash ${{ github.sha }}
