@@ -36,12 +36,12 @@
 	<url>
 		<loc>https://smoothcsv.com/1/allrelease</loc>
 		<lastmod>2024-11-28</lastmod>
-		<priority>0.20</priority>
+		<priority>0.10</priority>
 	</url>
 	<url>
 		<loc>https://smoothcsv.com/1/manual</loc>
 		<lastmod>2024-11-28</lastmod>
-		<priority>0.20</priority>
+		<priority>0.10</priority>
 	</url>
 	<url>
 		<loc>https://smoothcsv.com/1/product</loc>
@@ -51,7 +51,7 @@
 	<url>
 		<loc>https://smoothcsv.com/1/support</loc>
 		<lastmod>2024-11-28</lastmod>
-		<priority>0.20</priority>
+		<priority>0.10</priority>
 	</url>
 	<url>
 		<loc>https://smoothcsv.com/1/release_v1_0_0</loc>
@@ -96,21 +96,21 @@
 	<url>
 		<loc>https://smoothcsv.com/2/</loc>
 		<lastmod>2024-11-28</lastmod>
-		<priority>0.30</priority>
+		<priority>0.20</priority>
 	</url>
 	<url>
 		<loc>https://smoothcsv.com/2/docs/</loc>
 		<lastmod>2024-11-28</lastmod>
-		<priority>0.20</priority>
+		<priority>0.10</priority>
 	</url>
 	<url>
 		<loc>https://smoothcsv.com/2/download/</loc>
 		<lastmod>2024-11-28</lastmod>
-		<priority>0.20</priority>
+		<priority>0.10</priority>
 	</url>
 	<url>
 		<loc>https://smoothcsv.com/2/macro/</loc>
 		<lastmod>2024-11-28</lastmod>
-		<priority>0.20</priority>
+		<priority>0.10</priority>
 	</url>
 </urlset>
