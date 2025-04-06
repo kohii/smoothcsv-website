@@ -2,11 +2,10 @@
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import Button from "./Button.astro";
 import StyledText from "./StyledText.astro";
+import { VERSION } from "../version";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-const VERSION = "3.0.0-beta.5";
 
 const MAC_DOWNLOAD_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}/SmoothCSV_${VERSION}_universal.dmg`;
 const WINDOWS_DOWNLOAD_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}/SmoothCSV_${VERSION}_x64-setup.exe`;
