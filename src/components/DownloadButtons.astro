@@ -1,8 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { VERSION } from "../version";
 import Button from "./Button.astro";
 import StyledText from "./StyledText.astro";
-import { VERSION } from "../version";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
