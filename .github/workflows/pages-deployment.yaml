@@ -1,15 +1,7 @@
 on:
   push:
   repository_dispatch:
-    types: [smoothcsv-release]
-  workflow_dispatch:
-    inputs:
-      force_update:
-        description: 'Force version update check'
-        required: false
-        default: 'false'
-  schedule:
-    - cron: '0 0 * * *'
+    types: [release-published]
 
 jobs:
   deploy:
