@@ -1,5 +1,15 @@
 on:
   push:
+  repository_dispatch:
+    types: [smoothcsv-release]
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force version update check'
+        required: false
+        default: 'false'
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   deploy:
@@ -19,6 +29,14 @@ jobs:
 
       - run: npm ci
 
+      - name: Fetch latest SmoothCSV version
+        id: fetch-version
+        run: |
+          LATEST_RELEASE=$(curl -s https://api.github.com/repos/kohii/smoothcsv3/releases/latest)
+          VERSION=$(echo $LATEST_RELEASE | jq -r .tag_name | sed 's/^v//')
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Latest SmoothCSV version: $VERSION"
+
       - name: Lint
         run: npm run lint
 
@@ -33,10 +51,14 @@ jobs:
       - name: Build for production
         run: npm run build
         if: steps.extract_branch.outputs.branch == 'main'
+        env:
+          PUBLIC_SMOOTHCSV_VERSION: ${{ steps.fetch-version.outputs.VERSION }}
 
       - name: Build for non-production
         run: npm run build -- --site="https://${{ steps.extract_branch.outputs.branch }}.smoothcsv-website.pages.dev/"
         if: steps.extract_branch.outputs.branch != 'main'
+        env:
+          PUBLIC_SMOOTHCSV_VERSION: ${{ steps.fetch-version.outputs.VERSION }}
 
       - name: Deploy
         run: npm run wrangler -- pages deploy dist --project-name smoothcsv-website --branch "${{ steps.extract_branch.outputs.branch }}" --commit-hash ${{ github.sha }}
