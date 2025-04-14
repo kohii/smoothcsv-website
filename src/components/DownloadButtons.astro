@@ -7,7 +7,9 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 // Version is injected during build by CI
-const VERSION = import.meta.env.PUBLIC_SMOOTHCSV_VERSION || "3.0.0-beta.5";
+// const VERSION = import.meta.env.PUBLIC_SMOOTHCSV_VERSION || "3.0.0-beta.5";
+// Temporary hardcoded version to fix the issue
+const VERSION = "3.0.0-beta.6";
 
 const MAC_DOWNLOAD_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}/SmoothCSV_${VERSION}_universal.dmg`;
 const WINDOWS_DOWNLOAD_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}/SmoothCSV_${VERSION}_x64-setup.exe`;
