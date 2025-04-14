@@ -27,10 +27,6 @@ jobs:
         run: |
           LATEST_RELEASE=$(curl -s https://api.github.com/repos/kohii/smoothcsv3/releases/latest)
           VERSION=$(echo $LATEST_RELEASE | jq -r .tag_name | sed 's/^v//')
-          if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
-            echo "Error: Failed to fetch valid version number"
-            exit 1
-          fi
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
           echo "Latest SmoothCSV version: $VERSION"
 
