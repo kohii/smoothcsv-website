@@ -25,8 +25,36 @@ jobs:
       - name: Fetch latest SmoothCSV version
         id: fetch-version
         run: |
-          LATEST_RELEASE=$(curl -s https://api.github.com/repos/kohii/smoothcsv3/releases/latest)
-          VERSION=$(echo $LATEST_RELEASE | jq -r .tag_name | sed 's/^v//')
+          MAX_RETRIES=3
+          RETRY_COUNT=0
+          SUCCESS=false
+          
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ] && [ "$SUCCESS" = "false" ]; do
+            LATEST_RELEASE=$(curl -s -f -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/kohii/smoothcsv3/releases/latest)
+            CURL_EXIT_CODE=$?
+            
+            if [ $CURL_EXIT_CODE -eq 0 ]; then
+              VERSION=$(echo $LATEST_RELEASE | jq -r .tag_name | sed 's/^v//')
+              
+              if [ "$VERSION" != "null" ] && [ -n "$VERSION" ]; then
+                SUCCESS=true
+              else
+                echo "バージョンの取得に失敗しました。再試行中... ($((RETRY_COUNT+1))/$MAX_RETRIES)"
+                RETRY_COUNT=$((RETRY_COUNT+1))
+                [ $RETRY_COUNT -lt $MAX_RETRIES ] && sleep 5
+              fi
+            else
+              echo "GitHub APIへのリクエストが失敗しました。再試行中... ($((RETRY_COUNT+1))/$MAX_RETRIES)"
+              RETRY_COUNT=$((RETRY_COUNT+1))
+              [ $RETRY_COUNT -lt $MAX_RETRIES ] && sleep 5
+            fi
+          done
+          
+          if [ "$SUCCESS" = "false" ]; then
+            echo "::error::最大再試行回数に達しました。バージョンの取得に失敗しました。"
+            exit 1
+          fi
+          
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
           echo "Latest SmoothCSV version: $VERSION"
 
