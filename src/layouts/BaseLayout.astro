@@ -2,6 +2,7 @@
 import { getAbsoluteLocaleUrl } from "astro:i18n";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
+import ProductHuntBanner from "@components/ProductHuntBanner.astro";
 import { getLangFromUrl, getPathWithoutLang } from "@i18n/utils";
 
 interface Props {
@@ -44,6 +45,7 @@ const supportedLanguages = Astro.locals.supportedLanguages;
     <meta property="og:description" content={description} />
   </head>
   <body class="text-primary min-h-screen grid grid-rows-[auto_1fr_auto]">
+    <ProductHuntBanner />
     <Header />
     <slot />
     <Footer />

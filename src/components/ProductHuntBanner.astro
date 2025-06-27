@@ -1,0 +1,36 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="w-full bg-gradient-to-r from-orange-500 to-pink-500 text-white py-3 px-4">
+  <div class="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
+    <span class="text-sm sm:text-base font-medium">
+      {t("productHunt.banner")}
+    </span>
+    <a
+      href="https://www.producthunt.com/products/smoothcsv"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center px-4 py-2 bg-white text-orange-600 rounded-full text-sm font-semibold hover:bg-orange-50 transition-colors duration-200"
+    >
+      {t("productHunt.followButton")}
+      <svg
+        class="ml-2 w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+        ></path>
+      </svg>
+    </a>
+  </div>
+</div> 
