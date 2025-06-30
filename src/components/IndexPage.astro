@@ -7,6 +7,7 @@ import Layout from "../layouts/BaseLayout.astro";
 import commandPaletteImage from "@assets/command-palette.png";
 import crossPlatformImage from "@assets/cross-platform.png";
 import editingImage from "@assets/editing.png";
+import filterImage from "@assets/filter.png";
 import heroImage from "@assets/hero.png";
 import avatorImage from "@assets/kohii.jpg";
 import perfImage from "@assets/perf.png";
@@ -119,6 +120,14 @@ Astro.response.headers.set(
                   alt="Command Palette"
                   class="w-full"
                   width="468"
+                />
+              </div>
+              <div class="lg:col-span-2 border overflow-hidden shadow-md">
+                <Image
+                  src={filterImage}
+                  alt="Filter"
+                  class="w-full"
+                  width="950"
                 />
               </div>
             </div>
