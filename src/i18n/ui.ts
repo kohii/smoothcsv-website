@@ -1,8 +1,6 @@
 export const ui = {
 	en: {
 		"meta.title": "SmoothCSV - The ultimate CSV editor for macOS & Windows",
-		"productHunt.banner": "🔥 SmoothCSV is now LIVE on Product Hunt!",
-		"productHunt.followButton": "Vote now!",
 		"hero.title": "The Ultimate CSV Editor",
 		"hero.description":
 			"SmoothCSV is a powerful and intuitive tool for editing CSV files.",
@@ -41,8 +39,6 @@ export const ui = {
 	},
 	ja: {
 		"meta.title": "SmoothCSV - macOS & Windows 向けの最強のCSVエディター",
-		"productHunt.banner": "🔥 SmoothCSV が Product Hunt でローンチ中！",
-		"productHunt.followButton": "今すぐ投票する！",
 		"hero.title": "The Ultimate CSV Editor",
 		"hero.description":
 			"SmoothCSV は 高機能・高性能な CSV ファイルエディターです。",
