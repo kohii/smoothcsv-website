@@ -35,6 +35,9 @@ export const ui = {
 		"footer.resources.terms": "Terms of Use",
 		"footer.contact.reportIssue": "Report an Issue",
 		"footer.contact.email": "Email",
+		"blog.description": "Technical articles about SmoothCSV development",
+		"blog.readMore": "Read on {0}",
+		"blog.noArticles": "No articles available yet",
 	},
 	ja: {
 		"meta.title": "SmoothCSV - macOS & Windows 向けの最強のCSVエディター",
@@ -71,5 +74,8 @@ export const ui = {
 		"footer.resources.terms": "利用規約",
 		"footer.contact.reportIssue": "問題を報告",
 		"footer.contact.email": "メール",
+		"blog.description": "SmoothCSV の開発に関する技術記事",
+		"blog.readMore": "{0} で読む",
+		"blog.noArticles": "まだ記事がありません",
 	},
 } as const;

@@ -4,12 +4,18 @@ import { defaultLang, supportedLanguagesPerPath } from "@i18n/constants";
 import { decideDisplayLanguage } from "@i18n/decideDisplayLanguage";
 import { getLangFromUrl, getPathWithoutLang } from "@i18n/utils";
 
+function trimTrailingSlash(path: string) {
+	if (path === "/") return path;
+	return path.replace(/\/$/, "");
+}
+
 // `context` and `next` are automatically typed
 export const onRequest = defineMiddleware(async (context, next) => {
 	const pathWithoutLang = getPathWithoutLang(context.url);
 	const langFromUrl = getLangFromUrl(context.url);
 
-	const supportedLanguages = supportedLanguagesPerPath[pathWithoutLang];
+	const supportedLanguages =
+		supportedLanguagesPerPath[trimTrailingSlash(pathWithoutLang)];
 	context.locals.supportedLanguages = supportedLanguages ?? [defaultLang];
 
 	// no language is available for the path

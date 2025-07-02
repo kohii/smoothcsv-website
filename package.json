@@ -3,7 +3,7 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "astro dev",
+		"dev": "PUBLIC_SMOOTHCSV_VERSION=0.0.1 astro dev",
 		"start": "PUBLIC_SMOOTHCSV_VERSION=0.0.1 astro dev",
 		"build": "astro check && astro build",
 		"preview": "wrangler pages dev ./dist",

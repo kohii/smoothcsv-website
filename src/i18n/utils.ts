@@ -15,7 +15,16 @@ export function getPathWithoutLang(url: URL) {
 }
 
 export function useTranslations(lang: keyof typeof ui) {
-	return function t(key: keyof (typeof ui)[typeof defaultLang]) {
-		return ui[lang]?.[key] || ui[defaultLang][key];
+	return function t(
+		key: keyof (typeof ui)[typeof defaultLang],
+		...args: string[]
+	) {
+		const text = ui[lang]?.[key] || ui[defaultLang][key];
+		return args.length > 0
+			? text.replace(
+					/{(\d+)}/g,
+					(match, p1) => args[Number.parseInt(p1)] || match,
+				)
+			: text;
 	};
 }

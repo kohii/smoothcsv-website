@@ -1,0 +1,58 @@
+---
+import type { BlogArticle } from "../data/blogArticles";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+export interface Props {
+	article: BlogArticle;
+}
+
+const { article } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const formattedDate = new Date(article.publishedAt).toLocaleDateString(
+	lang === "ja" ? "ja-JP" : "en-US",
+	{
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	},
+);
+---
+
+<article class="border border-gray-200 rounded-lg p-4 sm:p-6">
+	<h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+		<a href={article.url} target="_blank" rel="noopener noreferrer">
+			{article.title}
+		</a>
+	</h3>
+	<p class="text-gray-600 mb-4">
+		{article.description}
+	</p>
+	<div class="flex items-center justify-between">
+		<time class="text-sm text-gray-500">
+			{formattedDate}
+		</time>
+		<a
+			href={article.url}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="inline-flex items-center text-link font-medium hover:underline"
+		>
+			{t("blog.readMore", article.platform)}
+			<svg
+				class="w-4 h-4 ml-1"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+				></path>
+			</svg>
+		</a>
+	</div>
+</article>
