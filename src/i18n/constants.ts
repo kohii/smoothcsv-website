@@ -7,4 +7,5 @@ export const defaultLang = "en";
 
 export const supportedLanguagesPerPath: Record<string, string[]> = {
 	"/": ["en", "ja"],
+	"/blog": ["en", "ja"],
 };

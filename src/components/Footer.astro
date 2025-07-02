@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import AppIcon from "./AppIcon.astro";
 import GitHubIcon from "./GitHubIcon.astro";
@@ -42,6 +43,9 @@ const year = new Date().getFullYear();
           </li>
           <li class="py-0.5">
             <a href="/terms">{t("footer.resources.terms")}</a>
+          </li>
+          <li class="py-0.5">
+            <a href={getRelativeLocaleUrl(lang, "/blog")}>Blog</a>
           </li>
         </ul>
       </div>
