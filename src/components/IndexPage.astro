@@ -9,12 +9,12 @@ import avatorImage from "@assets/kohii.jpg";
 import perfImage from "@assets/perf.png";
 import replaceImage from "@assets/replace.png";
 import sortImage from "@assets/sort.png";
-import DownloadButtons from "@components/DownloadButtons.astro";
-import GitHubIcon from "@components/GitHubIcon.astro";
-import StyledText from "@components/StyledText.astro";
-import XIcon from "@components/XIcon.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import Layout from "../layouts/BaseLayout.astro";
+import DownloadButtons from "./DownloadButtons.astro";
+import GitHubIcon from "./GitHubIcon.astro";
+import StyledText from "./StyledText.astro";
+import XIcon from "./XIcon.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
