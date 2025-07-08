@@ -11,8 +11,8 @@
 		"wrangler": "wrangler",
 		"pages:deploy": "wrangler pages deploy dist",
 		"pages:preview": "wrangler pages dev ./dist",
-		"lint": "biome check",
-		"lint:fix": "biome check --write",
+		"lint": "biome check ./src",
+		"lint:fix": "biome check --write ./src",
 		"test": "find src -name '*.test.ts' -exec tsx --test {} +"
 	},
 	"dependencies": {
@@ -25,7 +25,7 @@
 		"typescript": "^5.6.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "2.0.6",
 		"tsx": "^4.19.2",
 		"wrangler": "^3.81.0"
 	},

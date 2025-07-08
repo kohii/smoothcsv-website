@@ -1,9 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import GitHubIcon from "@components/GitHubIcon.astro";
-import XIcon from "@components/XIcon.astro";
-import Layout from "../layouts/BaseLayout.astro";
-
 import commandPaletteImage from "@assets/command-palette.png";
 import crossPlatformImage from "@assets/cross-platform.png";
 import editingImage from "@assets/editing.png";
@@ -14,8 +10,11 @@ import perfImage from "@assets/perf.png";
 import replaceImage from "@assets/replace.png";
 import sortImage from "@assets/sort.png";
 import DownloadButtons from "@components/DownloadButtons.astro";
+import GitHubIcon from "@components/GitHubIcon.astro";
 import StyledText from "@components/StyledText.astro";
+import XIcon from "@components/XIcon.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import Layout from "../layouts/BaseLayout.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
