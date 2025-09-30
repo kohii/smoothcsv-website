@@ -9,7 +9,7 @@ export const ui = {
 			"Edit your CSV files with an intuitive spreadsheet-like interface.",
 		"powerfulTools.title": "Powerful Tools",
 		"powerfulTools.description":
-			"Find and replace text, sort and filter data, run SQL queries, and much more.\nThe command palette gives you quick access to all features.",
+			"Find and replace text, sort and filter data, run SQL queries, multi-cell editing, and much more.\nThe command palette gives you quick access to all features.",
 		"fast.title": "Lightning Fast",
 		"fast.description":
 			"Handle large CSV files with blazing speed and efficiency.",
@@ -47,7 +47,7 @@ export const ui = {
 			"スプレッドシートのような使い慣れたインターフェイスで CSV ファイルを快適に編集できます。",
 		"powerfulTools.title": "豊富な機能",
 		"powerfulTools.description":
-			"検索、置換、ソート、フィルタ、SQL など、豊富な機能を搭載。\nすべての機能にコマンドパレットから素早くアクセスできます。",
+			"検索、置換、ソート、フィルタ、SQL、複数セル同時編集など、豊富な機能を搭載。\nすべての機能にコマンドパレットから素早くアクセスできます。",
 		"fast.title": "超高速",
 		"fast.description": "大容量ファイルでもすぐに開き、編集できます。",
 		"crossPlatform.title": "クロスプラットフォーム",
