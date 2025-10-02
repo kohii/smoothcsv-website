@@ -5,8 +5,10 @@
 # Archived pages should be cached for 1 hour in the browser and 1 day in the CDN
 /1/*
   Cache-Control: public, max-age=3600, s-maxage=86400
+  X-Robots-Tag: noindex, nofollow
 /2/*
   Cache-Control: public, max-age=3600, s-maxage=86400
+  X-Robots-Tag: noindex, nofollow
 
 # Privacy and terms should be cached for 5 minutes in the browser and 10 minutes in the CDN
 /privacy
