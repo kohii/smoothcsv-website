@@ -74,6 +74,13 @@ async function main() {
 	// Deduplicate links
 	const uniqueLinks = [...new Set(links)];
 	console.log(`Found ${uniqueLinks.length} unique download link(s):\n`);
+
+	// Error if no download links found
+	if (uniqueLinks.length === 0) {
+		console.error("❌ No download links found on the page!");
+		process.exit(1);
+	}
+
 	for (const link of uniqueLinks) {
 		console.log(`  - ${link}`);
 	}
