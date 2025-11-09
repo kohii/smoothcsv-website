@@ -1,9 +1,11 @@
+import type { Language } from "@i18n/constants";
+
 export interface BlogArticle {
 	title: string;
 	description: string;
 	url: string;
 	publishedAt: string;
-	language: "en" | "ja";
+	language: Language;
 	platform: "zenn.dev" | "dev.to";
 }
 
@@ -57,7 +59,7 @@ export const blogArticles: BlogArticle[] = [
 	},
 ];
 
-export function getArticlesByLanguage(language: "en" | "ja"): BlogArticle[] {
+export function getArticlesByLanguage(language: Language): BlogArticle[] {
 	return blogArticles
 		.filter((article) => article.language === language)
 		.sort(

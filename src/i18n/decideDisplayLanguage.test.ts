@@ -1,13 +1,15 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
+import type { Language } from "./constants";
 import { decideDisplayLanguage } from "./decideDisplayLanguage";
 
 describe("decideDisplayLanguage", () => {
 	it("should return the current language if it is not default", () => {
+		const langs: Language[] = ["en", "ja"];
 		assert.equal(
 			decideDisplayLanguage(
 				"ja",
-				["en", "ja"],
+				langs,
 				() => undefined,
 				() => undefined,
 			),
@@ -15,10 +17,11 @@ describe("decideDisplayLanguage", () => {
 		);
 	});
 	it("should return the language from the cookie if it is supported", () => {
+		const langs: Language[] = ["en", "ja"];
 		assert.equal(
 			decideDisplayLanguage(
 				"en",
-				["en", "ja"],
+				langs,
 				() => "ja",
 				() => "es",
 			),
@@ -26,10 +29,11 @@ describe("decideDisplayLanguage", () => {
 		);
 	});
 	it("should return the language from accept-language header if it is supported", () => {
+		const langs: Language[] = ["en", "fr"];
 		assert.equal(
 			decideDisplayLanguage(
 				"en",
-				["en", "fr"],
+				langs,
 				() => undefined,
 				() => "fr",
 			),
@@ -37,10 +41,11 @@ describe("decideDisplayLanguage", () => {
 		);
 	});
 	it("should return the closest supported language from accept-language header", () => {
+		const langs: Language[] = ["en", "ja"];
 		assert.equal(
 			decideDisplayLanguage(
 				"en",
-				["en", "ja"],
+				langs,
 				() => undefined,
 				() => "it,ja-JP",
 			),
@@ -48,10 +53,11 @@ describe("decideDisplayLanguage", () => {
 		);
 	});
 	it("should return the default language if accept-language is not supported", () => {
+		const langs: Language[] = ["ja", "fr"];
 		assert.equal(
 			decideDisplayLanguage(
 				"en",
-				["ja", "fr"],
+				langs,
 				() => undefined,
 				() => "it,es",
 			),

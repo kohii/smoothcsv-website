@@ -1,4 +1,5 @@
 ---
+import type { Language } from "@i18n/constants";
 import type { BlogArticle } from "../data/blogArticles";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
@@ -10,8 +11,21 @@ const { article } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+const dateLocales = {
+	en: "en-US",
+	"zh-cn": "zh-CN",
+	fr: "fr-FR",
+	it: "it-IT",
+	es: "es-ES",
+	ja: "ja-JP",
+	de: "de-DE",
+	ru: "ru-RU",
+	ko: "ko-KR",
+	pt: "pt-PT",
+} satisfies Record<Language, Intl.LocalesArgument>;
+
 const formattedDate = new Date(article.publishedAt).toLocaleDateString(
-	lang === "ja" ? "ja-JP" : "en-US",
+	dateLocales[lang] ?? "en-US",
 	{
 		year: "numeric",
 		month: "long",

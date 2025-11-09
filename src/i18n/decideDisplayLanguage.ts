@@ -1,23 +1,27 @@
+import type { Language } from "./constants";
 import { defaultLang } from "./constants";
 
 function findSupportedLanguage(
 	language: string,
-	supportedLanguages: string[],
-): string | undefined {
+	supportedLanguages: Language[],
+): Language | undefined {
 	return supportedLanguages.find((value) => language.startsWith(value));
 }
 
 export function decideDisplayLanguage(
-	currentLang: string,
-	supportedLanguages: string[],
+	currentLang: Language,
+	supportedLanguages: Language[],
 	getLanguageFromCookies: () => string | undefined,
 	getAcceptLanguage: () => string | undefined,
-) {
+): Language {
 	const languageFromCookies = getLanguageFromCookies();
 
 	// 1. Prefer the language set in the cookie
-	if (languageFromCookies && supportedLanguages.includes(languageFromCookies)) {
-		return languageFromCookies;
+	if (
+		languageFromCookies &&
+		supportedLanguages.includes(languageFromCookies as Language)
+	) {
+		return languageFromCookies as Language;
 	}
 
 	// 2. If the user requests non-default language, do nothing

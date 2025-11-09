@@ -1,9 +1,14 @@
-import { defaultLang } from "./constants";
+import { getRelativeLocaleUrl as getRelativeLocaleUrlAstro } from "astro:i18n";
+import {
+	defaultLang,
+	type Language,
+	supportedLanguagesPerPath,
+} from "./constants";
 import { ui } from "./ui";
 
-export function getLangFromUrl(url: URL) {
+export function getLangFromUrl(url: URL): Language {
 	const [, lang] = url.pathname.split("/");
-	if (lang && lang in ui) return lang as keyof typeof ui;
+	if (lang && lang in ui) return lang as Language;
 	return defaultLang;
 }
 
@@ -14,7 +19,7 @@ export function getPathWithoutLang(url: URL) {
 	return url.pathname.slice(lang.length + 1);
 }
 
-export function useTranslations(lang: keyof typeof ui) {
+export function useTranslations(lang: Language) {
 	return function t(
 		key: keyof (typeof ui)[typeof defaultLang],
 		...args: string[]
@@ -27,4 +32,15 @@ export function useTranslations(lang: keyof typeof ui) {
 				)
 			: text;
 	};
+}
+
+export function getRelativeLocaleUrl(lang: string, path: string) {
+	const availableLangForPath = supportedLanguagesPerPath[path];
+	if (
+		!availableLangForPath ||
+		!availableLangForPath.includes(lang as Language)
+	) {
+		return getRelativeLocaleUrlAstro(defaultLang, path);
+	}
+	return getRelativeLocaleUrlAstro(lang, path);
 }
