@@ -15,12 +15,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".node-version"
-          cache: npm
+          cache: pnpm
 
-      - run: npm ci
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
 
       - name: Fetch latest SmoothCSV version
         id: fetch-version
@@ -35,10 +40,10 @@ jobs:
           echo "Latest SmoothCSV version: $VERSION"
 
       - name: Lint
-        run: npm run lint
+        run: pnpm lint
 
       - name: Test
-        run: npm run test
+        run: pnpm test
 
       - name: Extract branch name
         shell: bash
@@ -49,19 +54,19 @@ jobs:
         run: echo "PUBLIC_SMOOTHCSV_VERSION=${{ steps.fetch-version.outputs.VERSION }}"
 
       - name: Build for production
-        run: npm run build
+        run: pnpm build
         if: steps.extract_branch.outputs.branch == 'main'
         env:
           PUBLIC_SMOOTHCSV_VERSION: ${{ steps.fetch-version.outputs.VERSION }}
 
       - name: Build for non-production
-        run: npm run build -- --site="https://${{ steps.extract_branch.outputs.branch }}.smoothcsv-website.pages.dev/"
+        run: pnpm build -- --site="https://${{ steps.extract_branch.outputs.branch }}.smoothcsv-website.pages.dev/"
         if: steps.extract_branch.outputs.branch != 'main'
         env:
           PUBLIC_SMOOTHCSV_VERSION: ${{ steps.fetch-version.outputs.VERSION }}
 
       - name: Deploy
-        run: npm run wrangler -- pages deploy dist --project-name smoothcsv-website --branch "${{ steps.extract_branch.outputs.branch }}" --commit-hash ${{ github.sha }}
+        run: pnpm wrangler pages deploy dist --project-name smoothcsv-website --branch "${{ steps.extract_branch.outputs.branch }}" --commit-hash ${{ github.sha }}
         if: github.repository == 'kohii/smoothcsv-website'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
