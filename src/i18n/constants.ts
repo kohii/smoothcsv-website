@@ -31,4 +31,5 @@ export const defaultLang: Language = "en";
 export const supportedLanguagesPerPath: Record<string, Language[]> = {
 	"/": [...languageList],
 	"/blog": ["en", "ja"],
+	"/terms": ["en", "ja"],
 };

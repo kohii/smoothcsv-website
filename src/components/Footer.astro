@@ -42,10 +42,10 @@ const year = new Date().getFullYear();
             </a>
           </li>
           <li class="py-0.5">
-            <a href="/privacy">{t("footer.resources.privacy")}</a>
+            <a href={getRelativeLocaleUrl(lang, "/privacy")}>{t("footer.resources.privacy")}</a>
           </li>
           <li class="py-0.5">
-            <a href="/terms">{t("footer.resources.terms")}</a>
+            <a href={getRelativeLocaleUrl(lang, "/terms")}>{t("footer.resources.terms")}</a>
           </li>
           <li class="py-0.5">
             <a href={getRelativeLocaleUrl(lang, "/blog")}>Blog</a>

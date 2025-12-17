@@ -70,7 +70,7 @@ export const ui = {
 		"download.mac": "macOS 版をダウンロード",
 		"download.windows": "Windows 版をダウンロード",
 		"privacy.text":
-			"SmoothCSV を使用することで、[プライバシーポリシー](/privacy) と [利用規約](/terms)に同意したことになります。",
+			"SmoothCSV を使用することで、[プライバシーポリシー](/privacy) と [利用規約](/ja/terms)に同意したことになります。",
 		"footer.resources.sourceCode": "ソースコード",
 		"footer.resources.privacy": "プライバシーポリシー",
 		"footer.resources.terms": "利用規約",
