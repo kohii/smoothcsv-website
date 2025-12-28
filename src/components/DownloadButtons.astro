@@ -1,7 +1,14 @@
 ---
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import {
+	getLangFromUrl,
+	getRelativeLocaleUrl,
+	useTranslations,
+} from "@i18n/utils";
+import AppleIcon from "./AppleIcon.astro";
 import Button from "./Button.astro";
+import LinuxIcon from "./LinuxIcon.astro";
 import StyledText from "./StyledText.astro";
+import WindowsIcon from "./WindowsIcon.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -10,20 +17,47 @@ const t = useTranslations(lang);
 const VERSION = import.meta.env.PUBLIC_SMOOTHCSV_VERSION;
 if (!VERSION || VERSION === "null") throw new Error("VERSION is not set");
 
-const MAC_DOWNLOAD_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}/SmoothCSV_${VERSION}_universal.dmg`;
-const WINDOWS_DOWNLOAD_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}/SmoothCSV_${VERSION}_x64_en-US.msi`;
+const BASE_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}`;
+const downloads = {
+	mac: `${BASE_URL}/SmoothCSV_${VERSION}_universal.dmg`,
+	windows_x64: `${BASE_URL}/SmoothCSV_${VERSION}_x64_en-US.msi`,
+	windows_arm64: `${BASE_URL}/SmoothCSV_${VERSION}_arm64_en-US.msi`,
+	linux_x64: `${BASE_URL}/SmoothCSV_${VERSION}_amd64.AppImage`,
+	linux_arm64: `${BASE_URL}/SmoothCSV_${VERSION}_aarch64.AppImage`,
+};
+
+const downloadPageUrl = getRelativeLocaleUrl(lang, "/download");
 ---
 
-<div class="group">
+<div class="group download-buttons-container">
   <div class="flex gap-3 items-center justify-center flex-wrap">
-    <a class="download-link" href={MAC_DOWNLOAD_URL}>
-      <Button variant="primary" class="download-button">
+    <a class="download-link" data-platform="windows_x64" href={downloads.windows_x64}>
+      <Button variant="primary" class="download-button flex items-center gap-2">
+        <WindowsIcon class="w-5 h-5" />
+        {t("download.windows")}
+      </Button>
+    </a>
+    <a class="download-link hidden" data-platform="windows_arm64" href={downloads.windows_arm64}>
+      <Button variant="primary" class="download-button flex items-center gap-2">
+        <WindowsIcon class="w-5 h-5" />
+        {t("download.windows")}
+      </Button>
+    </a>
+    <a class="download-link hidden" data-platform="mac" href={downloads.mac}>
+      <Button variant="primary" class="download-button flex items-center gap-2">
+        <AppleIcon class="w-5 h-5" />
         {t("download.mac")}
       </Button>
     </a>
-    <a class="download-link" href={WINDOWS_DOWNLOAD_URL}>
+    <a class="download-link hidden" data-platform="linux" href={downloadPageUrl}>
+      <Button variant="primary" class="download-button flex items-center gap-2">
+        <LinuxIcon class="w-5 h-5" />
+        {t("download.linux")}
+      </Button>
+    </a>
+    <a href={downloadPageUrl}>
       <Button variant="secondary" class="download-button">
-        {t("download.windows")}
+        {t("download.otherDownloads")}
       </Button>
     </a>
   </div>
@@ -32,28 +66,57 @@ const WINDOWS_DOWNLOAD_URL = `https://github.com/kohii/smoothcsv3/releases/downl
   </p>
 </div>
 <script>
-  function detectOS() {
+  type Platform = "mac" | "windows_x64" | "windows_arm64" | "linux";
+
+  async function detectPlatform(): Promise<Platform> {
     const userAgent = window.navigator.userAgent.toLowerCase();
-    if (userAgent.indexOf("win") > -1) return "Windows";
-    if (userAgent.indexOf("mac") > -1) return "macOS";
-    return "Unknown";
+
+    // macOS - universal build
+    if (userAgent.includes("mac")) {
+      return "mac";
+    }
+
+    // Detect architecture
+    let isArm = false;
+
+    // Try modern API first
+    if ("userAgentData" in navigator) {
+      try {
+        const ua = navigator.userAgentData as { getHighEntropyValues(hints: string[]): Promise<{ architecture?: string }> };
+        const hints = await ua.getHighEntropyValues(["architecture"]);
+        isArm = hints.architecture === "arm";
+      } catch {
+        // Fall back to userAgent detection
+      }
+    }
+
+    // Fallback: check userAgent for ARM indicators
+    if (!isArm) {
+      isArm = userAgent.includes("arm") || userAgent.includes("aarch64");
+    }
+
+    if (userAgent.includes("win")) {
+      return isArm ? "windows_arm64" : "windows_x64";
+    }
+
+    if (userAgent.includes("linux")) {
+      return "linux";
+    }
+
+    return "windows_x64"; // default
   }
 
-  function swapButtonStyles() {
-    const os = detectOS();
-    if (os === "Windows") {
-      const buttons = document.querySelectorAll("button.download-button");
-      buttons.forEach((button) => {
-        if (button.classList.contains("primary")) {
-          button.classList.remove("primary");
-          button.classList.add("secondary");
-        } else {
-          button.classList.remove("secondary");
-          button.classList.add("primary");
-        }
-      });
+  async function showDownloadButtons() {
+    const platform = await detectPlatform();
+    const allLinks = document.querySelectorAll(".download-buttons-container .download-link");
+    for (const link of allLinks) {
+      if (link.getAttribute("data-platform") === platform) {
+        link.classList.remove("hidden");
+      } else {
+        link.classList.add("hidden");
+      }
     }
   }
 
-  swapButtonStyles();
+  showDownloadButtons();
 </script>

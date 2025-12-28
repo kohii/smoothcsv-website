@@ -13,6 +13,7 @@ const lang = getLangFromUrl(Astro.url);
     <span class="ml-2 text-xl font-semibold">SmoothCSV</span>
     <div class="ml-auto flex items-center hover:[&_a]:text-link">
       <nav class="flex gap-4 sm:gap-6">
+        <a href={getRelativeLocaleUrl(lang, "/download")}>Download</a>
         <a href={getRelativeLocaleUrl(lang, "/blog")}>Blog</a>
         <a href="https://github.com/kohii/smoothcsv3/releases"> Updates </a>
         <a

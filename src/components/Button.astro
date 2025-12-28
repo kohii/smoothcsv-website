@@ -1,6 +1,5 @@
 ---
 export type Props = {
-	children: string;
 	variant: "primary" | "secondary";
 	class?: string;
 };
@@ -10,10 +9,10 @@ const { variant, class: className } = Astro.props;
 
 <style>
   .primary {
-    @apply bg-primary text-white;
+    @apply bg-primary text-white hover:bg-primary/90;
   }
   .secondary {
-    @apply bg-gray-300 text-primary;
+    @apply bg-transparent border border-gray-400 text-secondary hover:bg-gray-50;
   }
 </style>
 

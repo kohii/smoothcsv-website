@@ -1,0 +1,180 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import Layout from "../layouts/BaseLayout.astro";
+import AppleIcon from "./AppleIcon.astro";
+import DownloadIcon from "./DownloadIcon.astro";
+import LinuxIcon from "./LinuxIcon.astro";
+import StyledText from "./StyledText.astro";
+import WindowsIcon from "./WindowsIcon.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Version is injected during build by CI
+const VERSION = import.meta.env.PUBLIC_SMOOTHCSV_VERSION;
+if (!VERSION || VERSION === "null") throw new Error("VERSION is not set");
+
+const BASE_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}`;
+
+type DownloadItem = {
+	label: string;
+	url: string;
+	arch?: string;
+};
+
+type Platform = {
+	name: string;
+	icon: "apple" | "windows" | "linux";
+	items: DownloadItem[];
+};
+
+const platforms: Platform[] = [
+	{
+		name: "macOS",
+		icon: "apple",
+		items: [
+			{
+				label: "Universal",
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_universal.dmg`,
+				arch: "Intel + Apple Silicon",
+			},
+		],
+	},
+	{
+		name: "Windows",
+		icon: "windows",
+		items: [
+			{
+				label: t("download.installer"),
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_x64_en-US.msi`,
+				arch: "x64",
+			},
+			{
+				label: t("download.installer"),
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64_en-US.msi`,
+				arch: "ARM64",
+			},
+			{
+				label: t("download.portable"),
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_x64_portable.zip`,
+				arch: "x64",
+			},
+			{
+				label: t("download.portable"),
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64_portable.zip`,
+				arch: "ARM64",
+			},
+		],
+	},
+	{
+		name: "Linux",
+		icon: "linux",
+		items: [
+			{
+				label: ".deb",
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_amd64.deb`,
+				arch: "x64",
+			},
+			{
+				label: ".deb",
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64.deb`,
+				arch: "ARM64",
+			},
+			{
+				label: ".rpm",
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_amd64.rpm`,
+				arch: "x64",
+			},
+			{
+				label: ".rpm",
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64.rpm`,
+				arch: "ARM64",
+			},
+			{
+				label: "AppImage",
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_amd64.AppImage`,
+				arch: "x64",
+			},
+			{
+				label: "AppImage",
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_aarch64.AppImage`,
+				arch: "ARM64",
+			},
+			{
+				label: "AUR",
+				url: "https://aur.archlinux.org/packages/smoothcsv-bin",
+				arch: "Arch Linux",
+			},
+		],
+	},
+];
+
+Astro.response.headers.set(
+	"Cache-Control",
+	"public, max-age=300, s-maxage=600",
+);
+---
+
+<style>
+  .platform-card {
+    @apply bg-white border border-gray-200 rounded-xl p-6 flex flex-col;
+  }
+  .platform-icon {
+    @apply w-16 h-16 mx-auto mb-4;
+  }
+  .platform-name {
+    @apply text-2xl font-bold text-center mb-6;
+  }
+  .download-link {
+    @apply text-link font-medium;
+  }
+  .arch-badge {
+    @apply text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded;
+  }
+</style>
+
+<Layout title={t("downloadPage.title")}>
+  <main class="py-12 md:py-24">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold tracking-tighter sm:text-5xl mb-12">
+          {t("downloadPage.title")}
+        </h1>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+        {platforms.map((platform) => (
+          <div class="platform-card">
+            <div class="platform-icon">
+              {platform.icon === "apple" && <AppleIcon />}
+              {platform.icon === "windows" && <WindowsIcon />}
+              {platform.icon === "linux" && <LinuxIcon />}
+            </div>
+            <h2 class="platform-name">{platform.name}</h2>
+            <div class="flex-1">
+              {platform.items.map((item) => (
+                <a href={item.url} class="group flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 -mx-2 px-2 rounded">
+                  <div class="flex items-center gap-2">
+                    <span class="download-link group-hover:underline">{item.label}</span>
+                    {item.arch && <span class="arch-badge">{item.arch}</span>}
+                  </div>
+                  <DownloadIcon class="w-5 h-5 text-gray-400 group-hover:text-gray-500" />
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <p class="text-sm [&>a]:underline">
+          <StyledText text={t("privacy.text")} />
+        </p>
+        <p class="mt-4">
+          <a href="https://github.com/kohii/smoothcsv3/releases" class="text-sm underline" target="_blank" rel="noopener">
+            {t("downloadPage.viewAllReleases")}
+          </a>
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
