@@ -151,7 +151,7 @@ Astro.response.headers.set(
     @apply text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded;
   }
   .download-row.recommended {
-    @apply bg-gray-50;
+    @apply bg-blue-50/60;
   }
 </style>
 
@@ -214,13 +214,15 @@ Astro.response.headers.set(
 
       card.classList.add("detected");
 
-      // macOS: first item (Universal), others: first matching arch
-      const link =
+      // macOS: all items, others: all matching arch
+      const selector =
         platform.os === "macos"
-          ? card.querySelector(".download-row")
-          : card.querySelector(`.download-row[data-arch="${platform.arch}"]`);
+          ? ".download-row"
+          : `.download-row[data-arch="${platform.arch}"]`;
 
-      link?.classList.add("recommended");
+      card.querySelectorAll(selector).forEach((el) => {
+        el.classList.add("recommended");
+      });
     })();
   </script>
 </Layout>
