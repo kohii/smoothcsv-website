@@ -29,14 +29,21 @@ async function fetchHtml(url) {
 function extractDownloadLinks(html) {
 	const links = [];
 
-	// Match <a> tags with class="download-row" and extract href
-	// This regex looks for: <a with class containing "download-row" and extracts href
-	const regex = /<a[^>]*class="[^"]*download-row[^"]*"[^>]*href="([^"]+)"/g;
-	let match = regex.exec(html);
+	// Match all <a> tags and check if they contain "download-row" class
+	const anchorRegex = /<a[^>]*>/g;
+	let anchorMatch = anchorRegex.exec(html);
 
-	while (match !== null) {
-		links.push(match[1]);
-		match = regex.exec(html);
+	while (anchorMatch !== null) {
+		const anchorTag = anchorMatch[0];
+		// Check if this anchor tag contains "download-row" class
+		if (anchorTag.includes("download-row")) {
+			// Extract href from this anchor tag (support both single and double quotes)
+			const hrefMatch = anchorTag.match(/href=["']([^"']+)["']/);
+			if (hrefMatch && hrefMatch[1]) {
+				links.push(hrefMatch[1]);
+			}
+		}
+		anchorMatch = anchorRegex.exec(html);
 	}
 
 	return links;
@@ -79,6 +86,20 @@ async function main() {
 	// Error if no download links found
 	if (uniqueLinks.length === 0) {
 		console.error("❌ No download links found on the page!");
+		// Debug: Check if download-row class exists in HTML
+		if (html.includes("download-row")) {
+			console.error("⚠️  'download-row' class found in HTML, but no links extracted.");
+			// Try to find any <a> tags with download-row
+			const debugMatches = html.match(/<a[^>]*download-row[^>]*>/g);
+			if (debugMatches) {
+				console.error(`Found ${debugMatches.length} <a> tag(s) with 'download-row' class:`);
+				debugMatches.slice(0, 3).forEach((match, i) => {
+					console.error(`  ${i + 1}. ${match.substring(0, 100)}...`);
+				});
+			}
+		} else {
+			console.error("⚠️  'download-row' class not found in HTML at all.");
+		}
 		process.exit(1);
 	}
 
