@@ -151,7 +151,22 @@ Astro.response.headers.set(
     @apply text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded;
   }
   .download-row.recommended {
-    @apply bg-blue-50/60;
+    background-color: rgba(59, 130, 246, 0.1);
+    animation: recommendedPulse 1.4s ease-in-out infinite;
+  }
+  @keyframes recommendedPulse {
+    0%,
+    100% {
+      background-color: rgba(59, 130, 246, 0.01);
+    }
+    50% {
+      background-color: rgba(59, 130, 246, 0.08);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .download-row.recommended {
+      animation: none;
+    }
   }
 </style>
 
