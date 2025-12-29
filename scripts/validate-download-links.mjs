@@ -3,14 +3,14 @@
 /**
  * Validates that all download links on the deployed site are accessible (not 404).
  * This script:
- * 1. Fetches HTML from the deployed site (https://smoothcsv.com)
- * 2. Extracts href attributes from <a> tags with class "download-link"
+ * 1. Fetches HTML from the download page (https://smoothcsv.com/download)
+ * 2. Extracts href attributes from <a> tags with class "download-row"
  * 3. Deduplicates the URLs
  * 4. Checks each URL for 404 errors
  * 5. Exits with error code 1 if any links are broken
  */
 
-const SITE_URL = "https://smoothcsv.com";
+const SITE_URL = "https://smoothcsv.com/download";
 
 /**
  * Fetch HTML from a URL
@@ -29,13 +29,14 @@ async function fetchHtml(url) {
 function extractDownloadLinks(html) {
 	const links = [];
 
-	// Match <a> tags with class="download-link" and extract href
-	// This regex looks for: <a with class containing "download-link" and extracts href
-	const regex = /<a[^>]*class="[^"]*download-link[^"]*"[^>]*href="([^"]+)"/g;
-	let match;
+	// Match <a> tags with class="download-row" and extract href
+	// This regex looks for: <a with class containing "download-row" and extracts href
+	const regex = /<a[^>]*class="[^"]*download-row[^"]*"[^>]*href="([^"]+)"/g;
+	let match = regex.exec(html);
 
-	while ((match = regex.exec(html)) !== null) {
+	while (match !== null) {
 		links.push(match[1]);
+		match = regex.exec(html);
 	}
 
 	return links;
