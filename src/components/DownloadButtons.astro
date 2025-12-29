@@ -66,51 +66,29 @@ const downloadPageUrl = getRelativeLocaleUrl(lang, "/download");
   </p>
 </div>
 <script>
-  type Platform = "mac" | "windows_x64" | "windows_arm64" | "linux";
+  import { detectPlatform } from "@utils/detectPlatform";
 
-  async function detectPlatform(): Promise<Platform> {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-
-    // macOS - universal build
-    if (userAgent.includes("mac")) {
-      return "mac";
-    }
-
-    // Detect architecture
-    let isArm = false;
-
-    // Try modern API first
-    if ("userAgentData" in navigator) {
-      try {
-        const ua = navigator.userAgentData as { getHighEntropyValues(hints: string[]): Promise<{ architecture?: string }> };
-        const hints = await ua.getHighEntropyValues(["architecture"]);
-        isArm = hints.architecture === "arm";
-      } catch {
-        // Fall back to userAgent detection
-      }
-    }
-
-    // Fallback: check userAgent for ARM indicators
-    if (!isArm) {
-      isArm = userAgent.includes("arm") || userAgent.includes("aarch64");
-    }
-
-    if (userAgent.includes("win")) {
-      return isArm ? "windows_arm64" : "windows_x64";
-    }
-
-    if (userAgent.includes("linux")) {
-      return "linux";
-    }
-
-    return "windows_x64"; // default
-  }
+  type ButtonPlatform = "mac" | "windows_x64" | "windows_arm64" | "linux";
 
   async function showDownloadButtons() {
     const platform = await detectPlatform();
+
+    // Map detected platform to button platform
+    let buttonPlatform: ButtonPlatform = "windows_x64"; // default
+    if (platform) {
+      const { os, arch } = platform;
+      if (os === "macos") {
+        buttonPlatform = "mac";
+      } else if (os === "windows") {
+        buttonPlatform = arch === "arm64" ? "windows_arm64" : "windows_x64";
+      } else if (os === "linux") {
+        buttonPlatform = "linux";
+      }
+    }
+
     const allLinks = document.querySelectorAll(".download-buttons-container .download-link");
     for (const link of allLinks) {
-      if (link.getAttribute("data-platform") === platform) {
+      if (link.getAttribute("data-platform") === buttonPlatform) {
         link.classList.remove("hidden");
       } else {
         link.classList.add("hidden");
