@@ -16,94 +16,109 @@ if (!VERSION || VERSION === "null") throw new Error("VERSION is not set");
 
 const BASE_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}`;
 
+type OS = "macos" | "windows" | "linux";
+
 type DownloadItem = {
 	label: string;
 	url: string;
-	arch?: string;
+	arch: string;
+	archKey: "x64" | "arm64" | null;
 };
 
 type Platform = {
 	name: string;
-	icon: "apple" | "windows" | "linux";
+	os: OS;
 	items: DownloadItem[];
 };
 
 const platforms: Platform[] = [
 	{
 		name: "macOS",
-		icon: "apple",
+		os: "macos",
 		items: [
 			{
 				label: "Universal",
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_universal.dmg`,
 				arch: "Intel + Apple Silicon",
+				archKey: null,
 			},
 		],
 	},
 	{
 		name: "Windows",
-		icon: "windows",
+		os: "windows",
 		items: [
 			{
 				label: t("download.installer"),
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_x64_en-US.msi`,
 				arch: "x64",
+				archKey: "x64",
 			},
 			{
 				label: t("download.installer"),
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64_en-US.msi`,
 				arch: "ARM64",
+				archKey: "arm64",
 			},
 			{
 				label: t("download.portable"),
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_x64_portable.zip`,
 				arch: "x64",
+				archKey: "x64",
 			},
 			{
 				label: t("download.portable"),
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64_portable.zip`,
 				arch: "ARM64",
+				archKey: "arm64",
 			},
 		],
 	},
 	{
 		name: "Linux",
-		icon: "linux",
+		os: "linux",
 		items: [
 			{
 				label: ".deb",
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_amd64.deb`,
 				arch: "x64",
+				archKey: "x64",
 			},
 			{
 				label: ".deb",
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64.deb`,
 				arch: "ARM64",
+				archKey: "arm64",
 			},
 			{
 				label: ".rpm",
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_amd64.rpm`,
 				arch: "x64",
+				archKey: "x64",
 			},
 			{
 				label: ".rpm",
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64.rpm`,
 				arch: "ARM64",
+				archKey: "arm64",
 			},
 			{
 				label: "AppImage",
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_amd64.AppImage`,
 				arch: "x64",
+				archKey: "x64",
 			},
 			{
 				label: "AppImage",
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_aarch64.AppImage`,
 				arch: "ARM64",
+				archKey: "arm64",
 			},
 			{
 				label: "AUR",
 				url: "https://aur.archlinux.org/packages/smoothcsv-bin",
 				arch: "Arch Linux",
+				archKey: null,
 			},
 		],
 	},
@@ -118,6 +133,10 @@ Astro.response.headers.set(
 <style>
   .platform-card {
     @apply bg-white border border-gray-200 rounded-xl p-6 flex flex-col;
+    transition: border-color 0.2s ease;
+  }
+  .platform-card.detected {
+    @apply border-blue-400 border-2;
   }
   .platform-icon {
     @apply w-16 h-16 mx-auto mb-4;
@@ -130,6 +149,9 @@ Astro.response.headers.set(
   }
   .arch-badge {
     @apply text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded;
+  }
+  .download-row.recommended {
+    @apply bg-gray-50;
   }
 </style>
 
@@ -144,19 +166,19 @@ Astro.response.headers.set(
 
       <div class="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
         {platforms.map((platform) => (
-          <div class="platform-card">
+          <div class="platform-card" data-os={platform.os}>
             <div class="platform-icon">
-              {platform.icon === "apple" && <AppleIcon />}
-              {platform.icon === "windows" && <WindowsIcon />}
-              {platform.icon === "linux" && <LinuxIcon />}
+              {platform.os === "macos" && <AppleIcon />}
+              {platform.os === "windows" && <WindowsIcon />}
+              {platform.os === "linux" && <LinuxIcon />}
             </div>
             <h2 class="platform-name">{platform.name}</h2>
             <div class="flex-1">
               {platform.items.map((item) => (
-                <a href={item.url} class="group flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 -mx-2 px-2 rounded">
+                <a href={item.url} class="download-row group flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 -mx-2 px-2 rounded" data-arch={item.archKey}>
                   <div class="flex items-center gap-2">
                     <span class="download-link group-hover:underline">{item.label}</span>
-                    {item.arch && <span class="arch-badge">{item.arch}</span>}
+                    <span class="arch-badge">{item.arch}</span>
                   </div>
                   <DownloadIcon class="w-5 h-5 text-gray-400 group-hover:text-gray-500" />
                 </a>
@@ -177,4 +199,28 @@ Astro.response.headers.set(
       </div>
     </div>
   </main>
+
+  <script>
+    import { detectPlatform } from "@utils/detectPlatform";
+
+    (async () => {
+      const platform = await detectPlatform();
+      if (!platform) return;
+
+      const card = document.querySelector<HTMLElement>(
+        `.platform-card[data-os="${platform.os}"]`
+      );
+      if (!card) return;
+
+      card.classList.add("detected");
+
+      // macOS: first item (Universal), others: first matching arch
+      const link =
+        platform.os === "macos"
+          ? card.querySelector(".download-row")
+          : card.querySelector(`.download-row[data-arch="${platform.arch}"]`);
+
+      link?.classList.add("recommended");
+    })();
+  </script>
 </Layout>
