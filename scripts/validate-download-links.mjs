@@ -79,8 +79,13 @@ async function main() {
 	// Extract download links
 	const links = extractDownloadLinks(html);
 
+	// Filter out AUR link (returns 405 Method Not Allowed)
+	const filteredLinks = links.filter(
+		(link) => !link.includes("aur.archlinux.org"),
+	);
+
 	// Deduplicate links
-	const uniqueLinks = [...new Set(links)];
+	const uniqueLinks = [...new Set(filteredLinks)];
 	console.log(`Found ${uniqueLinks.length} unique download link(s):\n`);
 
 	// Error if no download links found
