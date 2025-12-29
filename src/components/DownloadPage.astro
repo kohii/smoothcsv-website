@@ -214,16 +214,19 @@ Astro.response.headers.set(
 
       card.classList.add("detected");
 
-      // macOS: all items (Universal), others: only if arch is detected
-      if (platform.os === "macos") {
-        card.querySelectorAll(".download-row").forEach((el) => {
-          el.classList.add("recommended");
-        });
-      } else if (platform.arch) {
-        card.querySelectorAll(`.download-row[data-arch="${platform.arch}"]`).forEach((el) => {
-          el.classList.add("recommended");
-        });
-      }
+	  switch (platform.os) {
+		case "macos":
+            // macOS: only Universal item is recommended
+			card.querySelector(".download-row")?.classList.add("recommended");
+			break;
+		case "windows":
+			// Windows: only first item (installer) is recommended
+			card.querySelector(".download-row:first-child")?.classList.add("recommended");
+			break;
+		case "linux":
+			// Linux: no recommended items
+			break;
+		}
     })();
   </script>
 </Layout>
