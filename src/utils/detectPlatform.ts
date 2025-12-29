@@ -61,9 +61,7 @@ export async function detectPlatform(): Promise<PlatformInfo | null> {
 			if (gl) {
 				const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
 				if (debugInfo) {
-					const renderer = gl.getParameter(
-						debugInfo.UNMASKED_RENDERER_WEBGL,
-					);
+					const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
 					// Apple M1/M2/M3/M4 chips
 					if (typeof renderer === "string" && renderer.includes("Apple M")) {
 						arch = "arm64";
