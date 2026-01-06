@@ -20,8 +20,8 @@ if (!VERSION || VERSION === "null") throw new Error("VERSION is not set");
 const BASE_URL = `https://github.com/kohii/smoothcsv3/releases/download/v${VERSION}`;
 const downloads = {
 	mac: `${BASE_URL}/SmoothCSV_${VERSION}_universal.dmg`,
-	windows_x64: `${BASE_URL}/SmoothCSV_${VERSION}_x64-setup.exe`,
-	windows_arm64: `${BASE_URL}/SmoothCSV_${VERSION}_arm64-setup.exe`,
+	windows_x64: `${BASE_URL}/SmoothCSV_${VERSION}_x64_en-US.msi`,
+	windows_arm64: `${BASE_URL}/SmoothCSV_${VERSION}_arm64_en-US.msi`,
 	linux_x64: `${BASE_URL}/SmoothCSV_${VERSION}_amd64.AppImage`,
 	linux_arm64: `${BASE_URL}/SmoothCSV_${VERSION}_aarch64.AppImage`,
 };
