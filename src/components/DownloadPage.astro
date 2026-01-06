@@ -220,8 +220,12 @@ Astro.response.headers.set(
 			card.querySelector(".download-row")?.classList.add("recommended");
 			break;
 		case "windows":
-			// Windows: only first item (installer) is recommended
-			card.querySelector(".download-row:first-child")?.classList.add("recommended");
+			// Windows: recommend installer matching detected architecture
+			const windowsArch = platform.arch === "arm64" ? "arm64" : "x64";
+			const windowsInstaller = card.querySelector(
+				`.download-row[data-arch="${windowsArch}"]`
+			);
+			windowsInstaller?.classList.add("recommended");
 			break;
 		case "linux":
 			// Linux: no recommended items
