@@ -49,13 +49,25 @@ const platforms: Platform[] = [
 		os: "windows",
 		items: [
 			{
-				label: t("download.installer"),
+				label: t("download.userInstaller"),
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_x64-setup.exe`,
+				arch: "x64",
+				archKey: "x64",
+			},
+			{
+				label: t("download.userInstaller"),
+				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64-setup.exe`,
+				arch: "ARM64",
+				archKey: "arm64",
+			},
+			{
+				label: t("download.msiInstaller"),
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_x64_en-US.msi`,
 				arch: "x64",
 				archKey: "x64",
 			},
 			{
-				label: t("download.installer"),
+				label: t("download.msiInstaller"),
 				url: `${BASE_URL}/SmoothCSV_${VERSION}_arm64_en-US.msi`,
 				arch: "ARM64",
 				archKey: "arm64",
