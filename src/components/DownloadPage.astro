@@ -232,11 +232,12 @@ Astro.response.headers.set(
 			card.querySelector(".download-row")?.classList.add("recommended");
 			break;
 		case "windows":
-			// Windows: recommend all installers matching detected architecture
+			// Windows: recommend installer matching detected architecture
 			const windowsArch = platform.arch === "arm64" ? "arm64" : "x64";
-			card.querySelectorAll(
+			const windowsInstaller = card.querySelector(
 				`.download-row[data-arch="${windowsArch}"]`
-			).forEach((el) => el.classList.add("recommended"));
+			);
+			windowsInstaller?.classList.add("recommended");
 			break;
 		case "linux":
 			// Linux: no recommended items
