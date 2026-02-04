@@ -16,7 +16,7 @@ const base = {
 		"Handle large CSV files with blazing speed and efficiency.",
 	"crossPlatform.title": "Cross-Platform",
 	"crossPlatform.description":
-		"SmoothCSV is available for Windows, macOS.\nComing soon to Linux.",
+		"SmoothCSV is available for Windows, macOS, and Linux.",
 	"getStarted.title": "Ready to Get Started?",
 	"getStarted.description":
 		"Download SmoothCSV today and start editing your CSV files with ease.",
@@ -64,8 +64,7 @@ export const ui = {
 		"fast.title": "超高速",
 		"fast.description": "大容量ファイルでもすぐに開き、編集できます。",
 		"crossPlatform.title": "クロスプラットフォーム",
-		"crossPlatform.description":
-			"Windows、macOS に対応。\nLinux にも対応予定です。",
+		"crossPlatform.description": "Windows、macOS、Linux に対応しています。",
 		"getStarted.title": "Ready to Get Started?",
 		"getStarted.description":
 			"SmoothCSV を今すぐダウンロードして、CSV ファイルを思い通りに編集しましょう。",
@@ -108,7 +107,7 @@ export const ui = {
 		"fast.description": "以惊人速度高效处理大型 CSV 文件。",
 		"crossPlatform.title": "跨平台",
 		"crossPlatform.description":
-			"SmoothCSV 提供 Windows 与 macOS 版本。\nLinux 版本即将推出。",
+			"SmoothCSV 提供 Windows、macOS 与 Linux 版本。",
 		"getStarted.title": "准备好开始了吗？",
 		"getStarted.description": "立即下载 SmoothCSV，轻松自如地编辑 CSV 文件。",
 		"aboutMe.title": "关于我",
@@ -151,7 +150,7 @@ export const ui = {
 			"Gérez de gros fichiers CSV avec une vitesse fulgurante.",
 		"crossPlatform.title": "Multiplateforme",
 		"crossPlatform.description":
-			"SmoothCSV est disponible sur Windows et macOS.\nBientôt disponible sur Linux.",
+			"SmoothCSV est disponible sur Windows, macOS et Linux.",
 		"getStarted.title": "Prêt à vous lancer ?",
 		"getStarted.description":
 			"Téléchargez SmoothCSV dès aujourd'hui et commencez à modifier vos CSV facilement.",
@@ -196,7 +195,7 @@ export const ui = {
 			"Gestisci file CSV di grandi dimensioni con velocità ed efficienza.",
 		"crossPlatform.title": "Multipiattaforma",
 		"crossPlatform.description":
-			"SmoothCSV è disponibile per Windows e macOS.\nLa versione Linux è in arrivo.",
+			"SmoothCSV è disponibile per Windows, macOS e Linux.",
 		"getStarted.title": "Pronto a iniziare?",
 		"getStarted.description":
 			"Scarica oggi SmoothCSV e inizia a modificare facilmente i tuoi file CSV.",
@@ -241,7 +240,7 @@ export const ui = {
 			"Procesa archivos CSV enormes con una velocidad y eficiencia increíbles.",
 		"crossPlatform.title": "Multiplataforma",
 		"crossPlatform.description":
-			"SmoothCSV está disponible para Windows y macOS.\nPróximamente en Linux.",
+			"SmoothCSV está disponible para Windows, macOS y Linux.",
 		"getStarted.title": "¿Listo para empezar?",
 		"getStarted.description":
 			"Descarga SmoothCSV hoy y comienza a editar tus CSV con facilidad.",
@@ -286,7 +285,7 @@ export const ui = {
 			"Verarbeite große CSV-Dateien mit beeindruckender Geschwindigkeit und Effizienz.",
 		"crossPlatform.title": "Plattformübergreifend",
 		"crossPlatform.description":
-			"SmoothCSV ist für Windows und macOS verfügbar.\nLinux folgt bald.",
+			"SmoothCSV ist für Windows, macOS und Linux verfügbar.",
 		"getStarted.title": "Bereit loszulegen?",
 		"getStarted.description":
 			"Lade SmoothCSV noch heute herunter und bearbeite deine CSV-Dateien ganz entspannt.",
@@ -331,7 +330,7 @@ export const ui = {
 			"Обрабатывайте большие CSV-файлы с потрясающей скоростью и эффективностью.",
 		"crossPlatform.title": "Кроссплатформенность",
 		"crossPlatform.description":
-			"SmoothCSV доступен для Windows и macOS.\nВерсия для Linux появится позже.",
+			"SmoothCSV доступен для Windows, macOS и Linux.",
 		"getStarted.title": "Готовы начать?",
 		"getStarted.description":
 			"Скачайте SmoothCSV уже сегодня и редактируйте CSV-файлы без лишних усилий.",
@@ -376,7 +375,7 @@ export const ui = {
 			"대용량 CSV 파일도 놀라운 속도로 효율적으로 처리합니다.",
 		"crossPlatform.title": "크로스 플랫폼",
 		"crossPlatform.description":
-			"SmoothCSV는 Windows와 macOS에서 사용할 수 있습니다.\nLinux 버전도 곧 제공될 예정입니다.",
+			"SmoothCSV는 Windows, macOS, Linux에서 사용할 수 있습니다.",
 		"getStarted.title": "지금 시작해 볼까요?",
 		"getStarted.description":
 			"지금 SmoothCSV를 내려받고 CSV 파일을 손쉽게 편집하세요.",
@@ -421,7 +420,7 @@ export const ui = {
 			"Lide com arquivos CSV grandes com velocidade e eficiência impressionantes.",
 		"crossPlatform.title": "Multiplataforma",
 		"crossPlatform.description":
-			"SmoothCSV está disponível para Windows e macOS.\nEm breve também no Linux.",
+			"SmoothCSV está disponível para Windows, macOS e Linux.",
 		"getStarted.title": "Pronto para começar?",
 		"getStarted.description":
 			"Baixe o SmoothCSV hoje e comece a editar seus CSVs com facilidade.",
