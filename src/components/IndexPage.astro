@@ -18,6 +18,7 @@ import XIcon from "./XIcon.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const mediaFrameClass = "overflow-hidden rounded-[24px] shadow-2xl";
 
 Astro.response.headers.set(
 	"Cache-Control",
@@ -30,6 +31,26 @@ Astro.response.headers.set(
     background-image: linear-gradient(to right, #80808012 1px, transparent 1px),
       linear-gradient(to bottom, #80808012 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+
+  .demo-section {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(140% 115% at 50% 0%, #eef5f2 0%, #f9fbfa 45%, #ffffff 100%);
+    border-top: 1px solid #e5ece9;
+    border-bottom: 1px solid #eef2f1;
+  }
+
+  .demo-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to right, #00000000 0%, #33415508 50%, #00000000 100%);
+  }
+
+  .demo-video-shell {
+    box-shadow: 0 30px 60px -44px #0f172a30, 0 18px 30px -24px #0f172a1a;
   }
 </style>
 
@@ -54,6 +75,38 @@ Astro.response.headers.set(
               class="w-full"
               width="1488"
             />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full py-8 md:pt-16 md:pb-24 demo-section">
+      <div class="container mx-auto">
+        <div class="px-4 lg:px-12">
+          <div class="flex flex-col gap-6 md:gap-8">
+            <div class="flex flex-col items-center gap-2 text-center">
+              <p class="text-xl md:text-3xl font-medium tracking-tight leading-tight">
+                {t("demo.tagline")}
+              </p>
+              <p class="text-base md:text-xl text-gray-500 leading-relaxed">
+                {t("demo.subline")}
+              </p>
+            </div>
+            <div
+              class={"w-full max-w-5xl mx-auto border border-slate-200 demo-video-shell " +
+                mediaFrameClass}
+            >
+              <video
+                class="block h-auto w-[calc(100%+1px)] -ml-px"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="SmoothCSV demo"
+              >
+                <source src="/videos/smoothcsv-demo.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
         </div>
       </div>

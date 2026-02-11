@@ -5,6 +5,8 @@ const base = {
 	"hero.title": "The Ultimate CSV Editor",
 	"hero.description":
 		"SmoothCSV is a powerful and intuitive tool for editing CSV files.",
+	"demo.tagline": "Simple to start. Powerful without limits.",
+	"demo.subline": "Built for anyone who works with CSV.",
 	"easyEditing.title": "Easy Editing",
 	"easyEditing.description":
 		"Edit your CSV files with an intuitive spreadsheet-like interface.",
@@ -55,6 +57,8 @@ export const ui = {
 		"hero.title": "The Ultimate CSV Editor",
 		"hero.description":
 			"SmoothCSV は 高機能・高性能な CSV ファイルエディターです。",
+		"demo.tagline": "シンプルにはじめて、どこまでも深く。",
+		"demo.subline": "CSVを扱うすべての人のためのエディタ。",
 		"easyEditing.title": "直感的な操作性",
 		"easyEditing.description":
 			"スプレッドシートのような使い慣れたインターフェイスで CSV ファイルを快適に編集できます。",
@@ -97,6 +101,8 @@ export const ui = {
 		"meta.title": "SmoothCSV - macOS 与 Windows 上终极 CSV 编辑器",
 		"hero.title": "终极 CSV 编辑器",
 		"hero.description": "SmoothCSV 是一款功能强大且直观的 CSV 文件编辑工具。",
+		"demo.tagline": "上手简单，强大无上限。",
+		"demo.subline": "为每一位处理 CSV 的人而打造。",
 		"easyEditing.title": "轻松编辑",
 		"easyEditing.description":
 			"使用类似电子表格的直观界面，顺畅编辑 CSV 文件。",
@@ -139,6 +145,9 @@ export const ui = {
 		"hero.title": "L'éditeur CSV ultime",
 		"hero.description":
 			"SmoothCSV est un outil puissant et intuitif pour modifier vos fichiers CSV.",
+		"demo.tagline": "Simple à prendre en main. Puissant sans limites.",
+		"demo.subline":
+			"Pensé pour toutes celles et ceux qui travaillent avec des CSV.",
 		"easyEditing.title": "Édition facile",
 		"easyEditing.description":
 			"Modifiez vos fichiers CSV avec une interface intuitive proche d'un tableur.",
@@ -184,6 +193,8 @@ export const ui = {
 		"hero.title": "L'editor CSV definitivo",
 		"hero.description":
 			"SmoothCSV è uno strumento potente e intuitivo per modificare file CSV.",
+		"demo.tagline": "Facile da iniziare. Potente senza limiti.",
+		"demo.subline": "Pensato per chi lavora con i CSV.",
 		"easyEditing.title": "Modifica semplice",
 		"easyEditing.description":
 			"Modifica i tuoi CSV con un'interfaccia intuitiva simile a un foglio di calcolo.",
@@ -229,6 +240,8 @@ export const ui = {
 		"hero.title": "El editor CSV definitivo",
 		"hero.description":
 			"SmoothCSV es una herramienta potente e intuitiva para editar archivos CSV.",
+		"demo.tagline": "Fácil para empezar. Potente sin límites.",
+		"demo.subline": "Hecho para quienes trabajan con CSV.",
 		"easyEditing.title": "Edición sencilla",
 		"easyEditing.description":
 			"Edita tus CSV con una interfaz intuitiva similar a una hoja de cálculo.",
@@ -274,6 +287,8 @@ export const ui = {
 		"hero.title": "Der ultimative CSV-Editor",
 		"hero.description":
 			"SmoothCSV ist ein leistungsstarkes und intuitives Tool zum Bearbeiten von CSV-Dateien.",
+		"demo.tagline": "Einfach loslegen. Grenzenlos leistungsstark.",
+		"demo.subline": "Gemacht für alle, die mit CSV arbeiten.",
 		"easyEditing.title": "Einfache Bearbeitung",
 		"easyEditing.description":
 			"Bearbeite deine CSV-Dateien mit einer intuitiven, tabellenähnlichen Oberfläche.",
@@ -319,6 +334,8 @@ export const ui = {
 		"hero.title": "Лучший CSV-редактор",
 		"hero.description":
 			"SmoothCSV — мощный и интуитивно понятный инструмент для работы с CSV-файлами.",
+		"demo.tagline": "Легко начать. Мощь без ограничений.",
+		"demo.subline": "Создан для всех, кто работает с CSV.",
 		"easyEditing.title": "Простое редактирование",
 		"easyEditing.description":
 			"Редактируйте CSV-файлы в знакомом интерфейсе, похожем на электронные таблицы.",
@@ -364,6 +381,8 @@ export const ui = {
 		"hero.title": "궁극의 CSV 편집기",
 		"hero.description":
 			"SmoothCSV는 CSV 파일 편집을 위한 강력하고 직관적인 도구입니다.",
+		"demo.tagline": "시작은 간단하게, 활용은 한계 없이.",
+		"demo.subline": "CSV를 다루는 모든 사람을 위해.",
 		"easyEditing.title": "쉬운 편집",
 		"easyEditing.description":
 			"스프레드시트와 같은 익숙한 인터페이스로 CSV 파일을 편하게 편집하세요.",
@@ -409,6 +428,8 @@ export const ui = {
 		"hero.title": "O editor CSV definitivo",
 		"hero.description":
 			"SmoothCSV é uma ferramenta poderosa e intuitiva para editar arquivos CSV.",
+		"demo.tagline": "Simples para começar. Poderoso sem limites.",
+		"demo.subline": "Feito para quem trabalha com CSV.",
 		"easyEditing.title": "Edição fácil",
 		"easyEditing.description":
 			"Edite seus arquivos CSV com uma interface intuitiva parecida com uma planilha.",
