@@ -48,9 +48,6 @@ Astro.response.headers.set(
     background: linear-gradient(to right, #00000000 0%, #33415508 50%, #00000000 100%);
   }
 
-  .demo-video-shell {
-    box-shadow: 0 30px 60px -44px #0f172a30, 0 18px 30px -24px #0f172a1a;
-  }
 </style>
 
 <Layout title={t("meta.title")}>
@@ -91,7 +88,7 @@ Astro.response.headers.set(
               </p>
             </div>
             <div
-              class="w-full max-w-5xl mx-auto border border-slate-200 demo-video-shell overflow-hidden rounded-[24px]"
+              class="w-full max-w-5xl mx-auto border border-slate-200 overflow-hidden rounded-[24px] shadow-2xl"
             >
               <video
                 class="block h-auto w-[calc(100%+1px)] -ml-px"
