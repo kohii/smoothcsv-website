@@ -9,17 +9,17 @@ This is the marketing website for SmoothCSV (https://smoothcsv.com/), a CSV edit
 ## Key Commands
 
 ### Development
-- `npm run dev` or `npm run start` - Start development server on http://localhost:4321
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
+- `pnpm dev` or `pnpm start` - Start development server on http://localhost:4321
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build locally
 
 ### Code Quality
-- `npm run lint` - Run Biome linter
-- `npm run lint:fix` - Auto-fix linting issues
-- `npm run test` - Run all tests (searches for `*.test.ts` files in src/)
+- `pnpm lint` - Run Biome linter
+- `pnpm lint:fix` - Auto-fix linting issues
+- `pnpm test` - Run all tests (searches for `*.test.ts` files in src/)
 
 ### Deployment
-- `npm run pages:deploy` - Deploy to Cloudflare Pages (requires CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN)
+- `pnpm pages:deploy` - Deploy to Cloudflare Pages (requires CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN)
 - Note: Deployment is automated via GitHub Actions on push to main (production) or other branches (preview).
 
 ## Architecture
