@@ -45,6 +45,7 @@ const base = {
 	"footer.contact.email": "Email",
 	"blog.description": "Technical articles about SmoothCSV development",
 	"blog.readMore": "Read on {0}",
+	"blog.readArticle": "Read article",
 	"blog.noArticles": "No articles available yet",
 };
 
@@ -95,6 +96,7 @@ export const ui = {
 		"footer.contact.email": "メール",
 		"blog.description": "SmoothCSV の開発に関する技術記事",
 		"blog.readMore": "{0} で読む",
+		"blog.readArticle": "記事を読む",
 		"blog.noArticles": "まだ記事がありません",
 	},
 	"zh-cn": {
@@ -138,6 +140,7 @@ export const ui = {
 		"footer.contact.email": "电子邮件",
 		"blog.description": "关于 SmoothCSV 开发的技术文章",
 		"blog.readMore": "在 {0} 阅读",
+		"blog.readArticle": "阅读文章",
 		"blog.noArticles": "暂无文章",
 	},
 	fr: {
@@ -186,6 +189,7 @@ export const ui = {
 		"footer.contact.email": "E-mail",
 		"blog.description": "Articles techniques sur le développement de SmoothCSV",
 		"blog.readMore": "Lire sur {0}",
+		"blog.readArticle": "Lire l'article",
 		"blog.noArticles": "Aucun article pour le moment",
 	},
 	it: {
@@ -233,6 +237,7 @@ export const ui = {
 		"footer.contact.email": "Email",
 		"blog.description": "Articoli tecnici sullo sviluppo di SmoothCSV",
 		"blog.readMore": "Leggi su {0}",
+		"blog.readArticle": "Leggi l'articolo",
 		"blog.noArticles": "Nessun articolo disponibile",
 	},
 	es: {
@@ -280,6 +285,7 @@ export const ui = {
 		"footer.contact.email": "Correo electrónico",
 		"blog.description": "Artículos técnicos sobre el desarrollo de SmoothCSV",
 		"blog.readMore": "Leer en {0}",
+		"blog.readArticle": "Leer artículo",
 		"blog.noArticles": "Aún no hay artículos",
 	},
 	de: {
@@ -327,6 +333,7 @@ export const ui = {
 		"footer.contact.email": "E-Mail",
 		"blog.description": "Technische Artikel über die Entwicklung von SmoothCSV",
 		"blog.readMore": "Auf {0} lesen",
+		"blog.readArticle": "Artikel lesen",
 		"blog.noArticles": "Noch keine Artikel verfügbar",
 	},
 	ru: {
@@ -374,6 +381,7 @@ export const ui = {
 		"footer.contact.email": "Электронная почта",
 		"blog.description": "Технические статьи о разработке SmoothCSV",
 		"blog.readMore": "Читать на {0}",
+		"blog.readArticle": "Читать статью",
 		"blog.noArticles": "Пока нет доступных статей",
 	},
 	ko: {
@@ -421,6 +429,7 @@ export const ui = {
 		"footer.contact.email": "이메일",
 		"blog.description": "SmoothCSV 개발에 관한 기술 글",
 		"blog.readMore": "{0}에서 읽기",
+		"blog.readArticle": "기사 읽기",
 		"blog.noArticles": "아직 게시된 글이 없습니다",
 	},
 	pt: {
@@ -468,6 +477,7 @@ export const ui = {
 		"footer.contact.email": "E-mail",
 		"blog.description": "Artigos técnicos sobre o desenvolvimento do SmoothCSV",
 		"blog.readMore": "Ler em {0}",
+		"blog.readArticle": "Ler artigo",
 		"blog.noArticles": "Ainda não há artigos disponíveis",
 	},
 } satisfies Record<Language, UiDictionary>;

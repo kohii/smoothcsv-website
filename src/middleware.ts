@@ -14,8 +14,10 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	const pathWithoutLang = getPathWithoutLang(context.url);
 	const langFromUrl = getLangFromUrl(context.url);
 
+	const path = trimTrailingSlash(pathWithoutLang);
 	const supportedLanguages =
-		supportedLanguagesPerPath[trimTrailingSlash(pathWithoutLang)];
+		supportedLanguagesPerPath[path] ??
+		(path.startsWith("/blog/") ? (["en", "ja"] as const) : undefined);
 	context.locals.supportedLanguages = supportedLanguages ?? [defaultLang];
 
 	// no language is available for the path

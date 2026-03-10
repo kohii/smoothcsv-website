@@ -1,0 +1,21 @@
+---
+import { getEntry } from "astro:content";
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+
+const { slug } = Astro.params;
+const entry = await getEntry("blog", `en/${slug}`);
+
+if (!entry) {
+	return Astro.redirect("/404");
+}
+
+const { Content } = await entry.render();
+---
+
+<BlogPostLayout
+	title={entry.data.title}
+	description={entry.data.description}
+	publishedAt={entry.data.publishedAt}
+>
+	<Content />
+</BlogPostLayout>

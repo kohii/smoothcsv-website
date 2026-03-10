@@ -1,0 +1,50 @@
+---
+import { getLangFromUrl } from "../i18n/utils";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+	title: string;
+	description: string;
+	publishedAt: string;
+}
+
+const { title, description, publishedAt } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+
+const dateLocales: Record<string, Intl.LocalesArgument> = {
+	en: "en-US",
+	ja: "ja-JP",
+};
+
+const formattedDate = new Date(publishedAt).toLocaleDateString(
+	dateLocales[lang] ?? "en-US",
+	{
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	},
+);
+
+const blogListUrl = lang === "en" ? "/blog" : `/${lang}/blog`;
+---
+
+<BaseLayout title={`${title} - SmoothCSV Blog`} description={description}>
+	<main class="container mx-auto px-4 py-8 max-w-3xl">
+		<a
+			href={blogListUrl}
+			class="inline-flex items-center text-link hover:underline mb-6"
+		>
+			<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+			</svg>
+			Blog
+		</a>
+		<article class="prose lg:prose-lg">
+			<header class="mb-8">
+				<h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{title}</h1>
+				<time class="text-sm text-gray-500">{formattedDate}</time>
+			</header>
+			<slot />
+		</article>
+	</main>
+</BaseLayout>

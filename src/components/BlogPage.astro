@@ -1,12 +1,12 @@
 ---
 import BlogCard from "../components/BlogCard.astro";
-import { getArticlesByLanguage } from "../data/blogArticles";
+import { getAllBlogEntries } from "../data/blogPosts";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const articles = getArticlesByLanguage(lang);
+const articles = await getAllBlogEntries(lang);
 ---
 
 <BaseLayout title="Blog - SmoothCSV" description={t("blog.description")}>
@@ -20,7 +20,7 @@ const articles = getArticlesByLanguage(lang);
 			articles.length > 0 ? (
 				<div class="space-y-6">
 					{articles.map((article) => (
-						<BlogCard article={article} />
+						<BlogCard entry={article} lang={lang} />
 					))}
 				</div>
 			) : (
