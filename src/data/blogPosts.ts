@@ -29,11 +29,7 @@ export async function getAllBlogEntries(
 	});
 
 	const internalEntries: BlogEntry[] = posts.map((post) => {
-		const slug = post.id
-			.split("/")
-			.slice(1)
-			.join("/")
-			.replace(/\.md$/, "");
+		const slug = post.id.split("/").slice(1).join("/").replace(/\.md$/, "");
 		return {
 			type: "internal",
 			title: post.data.title,
