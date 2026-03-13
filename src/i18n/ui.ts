@@ -38,7 +38,6 @@ const base = {
 	"downloadPage.viewAllReleases": "View all releases on GitHub",
 	"privacy.text":
 		"By using SmoothCSV, you agree to the [Privacy Policy](/privacy) and [Terms of Use](/terms).",
-	"footer.resources.sourceCode": "Source Code",
 	"footer.resources.privacy": "Privacy Policy",
 	"footer.resources.terms": "Terms of Use",
 	"footer.contact.reportIssue": "Report an Issue",
@@ -89,7 +88,6 @@ export const ui = {
 		"downloadPage.viewAllReleases": "GitHub ですべてのリリースを見る",
 		"privacy.text":
 			"SmoothCSV を使用することで、[プライバシーポリシー](/privacy) と [利用規約](/ja/terms) に同意したことになります。",
-		"footer.resources.sourceCode": "ソースコード",
 		"footer.resources.privacy": "プライバシーポリシー",
 		"footer.resources.terms": "利用規約",
 		"footer.contact.reportIssue": "問題を報告",
@@ -133,7 +131,6 @@ export const ui = {
 		"downloadPage.viewAllReleases": "在 GitHub 上查看所有版本",
 		"privacy.text":
 			"使用 SmoothCSV 即表示你同意[隐私政策](/privacy)和[使用条款](/terms)。",
-		"footer.resources.sourceCode": "源代码",
 		"footer.resources.privacy": "隐私政策",
 		"footer.resources.terms": "使用条款",
 		"footer.contact.reportIssue": "报告问题",
@@ -182,7 +179,6 @@ export const ui = {
 		"downloadPage.viewAllReleases": "Voir toutes les versions sur GitHub",
 		"privacy.text":
 			"En utilisant SmoothCSV, vous acceptez la [politique de confidentialité](/privacy) et les [conditions d'utilisation](/terms).",
-		"footer.resources.sourceCode": "Code source",
 		"footer.resources.privacy": "Politique de confidentialité",
 		"footer.resources.terms": "Conditions d'utilisation",
 		"footer.contact.reportIssue": "Signaler un problème",
@@ -230,7 +226,6 @@ export const ui = {
 		"downloadPage.viewAllReleases": "Visualizza tutte le versioni su GitHub",
 		"privacy.text":
 			"Usando SmoothCSV accetti l'[informativa sulla privacy](/privacy) e i [termini di utilizzo](/terms).",
-		"footer.resources.sourceCode": "Codice sorgente",
 		"footer.resources.privacy": "Informativa sulla privacy",
 		"footer.resources.terms": "Termini di utilizzo",
 		"footer.contact.reportIssue": "Segnala un problema",
@@ -278,7 +273,6 @@ export const ui = {
 		"downloadPage.viewAllReleases": "Ver todas las versiones en GitHub",
 		"privacy.text":
 			"Al usar SmoothCSV aceptas la [política de privacidad](/privacy) y los [términos de uso](/terms).",
-		"footer.resources.sourceCode": "Código fuente",
 		"footer.resources.privacy": "Política de privacidad",
 		"footer.resources.terms": "Términos de uso",
 		"footer.contact.reportIssue": "Reportar un problema",
@@ -326,7 +320,6 @@ export const ui = {
 		"downloadPage.viewAllReleases": "Alle Versionen auf GitHub ansehen",
 		"privacy.text":
 			"Durch die Nutzung von SmoothCSV akzeptierst du die [Datenschutzerklärung](/privacy) und die [Nutzungsbedingungen](/terms).",
-		"footer.resources.sourceCode": "Quellcode",
 		"footer.resources.privacy": "Datenschutzerklärung",
 		"footer.resources.terms": "Nutzungsbedingungen",
 		"footer.contact.reportIssue": "Problem melden",
@@ -374,7 +367,6 @@ export const ui = {
 		"downloadPage.viewAllReleases": "Все версии на GitHub",
 		"privacy.text":
 			"Используя SmoothCSV, вы соглашаетесь с [политикой конфиденциальности](/privacy) и [условиями использования](/terms).",
-		"footer.resources.sourceCode": "Исходный код",
 		"footer.resources.privacy": "Политика конфиденциальности",
 		"footer.resources.terms": "Условия использования",
 		"footer.contact.reportIssue": "Сообщить о проблеме",
@@ -422,7 +414,6 @@ export const ui = {
 		"downloadPage.viewAllReleases": "GitHub에서 모든 릴리스 보기",
 		"privacy.text":
 			"SmoothCSV를 사용하면 [개인정보 처리방침](/privacy)과 [이용 약관](/terms)에 동의하는 것으로 간주합니다.",
-		"footer.resources.sourceCode": "소스 코드",
 		"footer.resources.privacy": "개인정보 처리방침",
 		"footer.resources.terms": "이용 약관",
 		"footer.contact.reportIssue": "문제 신고",
@@ -470,7 +461,6 @@ export const ui = {
 		"downloadPage.viewAllReleases": "Ver todas as versões no GitHub",
 		"privacy.text":
 			"Ao usar o SmoothCSV você concorda com a [política de privacidade](/privacy) e os [termos de uso](/terms).",
-		"footer.resources.sourceCode": "Código-fonte",
 		"footer.resources.privacy": "Política de privacidade",
 		"footer.resources.terms": "Termos de uso",
 		"footer.contact.reportIssue": "Relatar um problema",
